@@ -1,0 +1,15 @@
+.wrapper {
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .titleWapper {
+    margin-bottom: 28px;
+  }
+
+  .inner {
+    max-width: 760px;
+  }

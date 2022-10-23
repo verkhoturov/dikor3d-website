@@ -1,0 +1,33 @@
+.mainContainer {
+  min-height: 100vh;
+}
+
+.titleContainer {
+  height: 250px;
+  display: flex;
+  align-items: center;
+}
+
+.sectionContainer {
+  max-width: 1198px;
+  padding: 80px 0;
+  margin: 0 auto;
+  background-color: #ffffff;
+  position: relative;
+}
+
+
+.sectionPadding0 {
+  padding: 0;
+}
+
+.sectionContainerGrayBg {
+  max-width: 100%;
+  padding: 80px 0;
+  background-color: #efefef;
+}
+
+.sectionInner {
+  margin: 0 auto;
+  max-width: 1198px;
+}

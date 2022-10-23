@@ -1,0 +1,30 @@
+.wrapper {
+  margin: 0 auto;
+  max-width: 1198px;
+  min-height: 230px;    
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapperBg {
+  min-height: 560px;    
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.inner {
+  max-width: 700px;
+  text-align: center;
+}
+  
+.subtitle {
+  font-size: 18px;
+  font-family: 'Open Sans',Arial,sans-serif;
+  line-height: 22px;
+  font-weight: 600;
+  color: #000000;
+}

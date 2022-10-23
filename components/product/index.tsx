@@ -1,0 +1,49 @@
+import React from "react";
+import Link from "next/link";
+import styles from "./index.module.css";
+import { CatalogItem } from "../../lib/types";
+
+export const Product: React.FC<{
+  product: CatalogItem;
+  isLoading?: boolean;
+}> = ({ product: { name, content, price, imgLink }, isLoading }) => {
+  if (isLoading)
+    return (
+      <div className={styles.wrapper}>
+        <div className={styles.gallery}></div>
+        <div className={styles.descWrapper}>
+          <h2 className={styles.name}> Загрузка...</h2>
+        </div>
+      </div>
+    );
+
+  return (
+    <div className={styles.wrapper}>
+      <div className={styles.gallery}>
+        <img className={styles.img} src={imgLink} alt={name} />
+      </div>
+      <div className={styles.descWrapper}>
+        <h2 className={styles.name}>{name}</h2>
+        <p className={styles.price}>
+          {price} р. <span>/ шт </span>
+        </p>
+
+        <Link href={`/catalog`}>
+          <a className={styles.linkBtn}>Купить</a>
+        </Link>
+        <p
+          className={styles.desc}
+          dangerouslySetInnerHTML={{ __html: content }}
+        ></p>
+      </div>
+    </div>
+  );
+};
+
+export const Back = () => (
+  <Link href="/catalog">
+    <a>
+      <span className={styles.backBtn}>Назад в каталог</span>
+    </a>
+  </Link>
+);

@@ -1,29 +1,34 @@
 import Head from "next/head";
 import { GetStaticProps } from "next";
-import Link from "next/link";
-import { Container } from "../../components/container";
-import Layout from "../../components/layout";
+import { useRouter } from "next/router";
+import { Delivery } from "../../components/delivery";
+import { Hero, Section } from "../../components/common";
+import { Page } from "../../components/page";
+import { Catalog } from "../../components/catalog";
 import { getCatalogList } from "../../lib/api";
+import { CatalogItem } from "../../lib/types";
 
-export default function Index({ catalogList }) {
-  if (!catalogList) return null;
+interface CatalogPageProps {
+  catalogList: CatalogItem[];
+}
+
+export default function CatalogPage({ catalogList }: CatalogPageProps) {
+  const router = useRouter();
+  const isLoading = router.isFallback;
 
   return (
-    <Layout>
+    <Page>
       <Head>
         <title>Dikor catalog</title>
       </Head>
-      <Container>
-        {catalogList.length > 0 &&
-          catalogList.map((pruduct, i) => (
-            <p key={`${pruduct.slug}-${i}`}>
-              <Link href={`/catalog/${pruduct.slug}`}>
-                <a>{pruduct.slug}</a>
-              </Link>
-            </p>
-          ))}
-      </Container>
-    </Layout>
+      <Hero title="Lifestyle accessories created to bring you the joy of usage" />
+      <Section isGrayBg>
+        <Catalog list={catalogList} isLoading={isLoading} />
+      </Section>
+      <Section>
+        <Delivery />
+      </Section>
+    </Page>
   );
 }
 
