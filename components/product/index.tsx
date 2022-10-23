@@ -6,7 +6,7 @@ import { CatalogItem } from "../../lib/types";
 export const Product: React.FC<{
   product: CatalogItem;
   isLoading?: boolean;
-}> = ({ product: { name, content, price, imgLink }, isLoading }) => {
+}> = ({ product, isLoading }) => {
   if (isLoading)
     return (
       <div className={styles.wrapper}>
@@ -16,6 +16,8 @@ export const Product: React.FC<{
         </div>
       </div>
     );
+
+  const { name, content, price, imgLink } = product;
 
   return (
     <div className={styles.wrapper}>

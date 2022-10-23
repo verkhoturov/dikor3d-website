@@ -10,15 +10,15 @@ import { getCatalogList, getProduct } from "../../lib/api";
 export default function Post({ product }) {
   const router = useRouter();
 
-  if (!router.isFallback && !product?.name) {
+  if (!router.isFallback && !product) {
     return <ErrorPage statusCode={404} />;
   }
 
   return (
     <Page>
       <Head>
-        <title>Dikor | {product.name}</title>
-        <meta property="og:image" content={product.imgLink} />
+        <title>Dikor | {product?.name}</title>
+        <meta property="og:image" content={product?.imgLink} />
       </Head>
       <Section noPadding style={{ marginTop: -80, paddingTop: 40 }}>
         <Back />
