@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./index.module.css";
 import { CatalogItem } from "../../lib/types";
 
@@ -22,7 +23,15 @@ export const Product: React.FC<{
   return (
     <div className={styles.wrapper}>
       <div className={styles.gallery}>
-        <img className={styles.img} src={imgLink} alt={name} />
+        <Image
+          loader={() => imgLink}
+          className={styles.img}
+          src={imgLink}
+          alt={name} 
+          width={500}
+          height={600}
+          layout="responsive"
+        />
       </div>
       <div className={styles.descWrapper}>
         <h2 className={styles.name}>{name}</h2>

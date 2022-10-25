@@ -1,12 +1,12 @@
 .wrapper {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 80px;
+  padding-bottom: 80px;
 }
 
 .gallery {
   flex: 0 0 50%;
-  min-height: 613px;
+  min-height: 600px;
   background-color: #f7f7f7;
 }
 
@@ -38,6 +38,8 @@
 
 .img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .linkBtn {
@@ -73,4 +75,28 @@
   top: 0;
   content: "←\a0";
   font-family: Arial,Helvetica,sans-serif;
+}
+
+@media (max-width: 1023px) {
+  .descWrapper { 
+    padding-left: 20px;
+  }
+  .gallery {
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 767px) {
+  .wrapper { 
+    flex-direction: column;
+  }
+  
+  .descWrapper { 
+    padding-left: 0;
+  }
+  
+  .gallery {
+    min-height: 300px;
+    margin-bottom: 30px;
+  }
 }

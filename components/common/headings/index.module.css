@@ -1,5 +1,6 @@
 .pageTitle {
   font-size: 37px;
+  line-height: 44px;
   font-weight: 600;
   color: #000000;
 }
@@ -23,3 +24,17 @@
 .pCenter {
   text-align: center;
 }
+
+@media (max-width: 1023px) {
+  .pageTitle {
+    font-size: 24px;
+    line-height: 29px;
+  }
+
+  .h2 {
+    font-size: 24px;
+    line-height: 29px;
+  }
+}
+
+/* @media (max-width: 1280px) {} */

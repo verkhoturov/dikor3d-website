@@ -1,0 +1,178 @@
+.wrapper { 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px 0;
+  overflow: hidden;
+}
+ 
+.titleWapper {
+  margin-bottom: 50px;
+}
+
+.titleWapper h2 {
+  text-align: center;
+}
+
+.listWrapper {
+  position: relative;
+}
+
+.listImgWrapper {
+  position: absolute;
+  left: calc(50% - 94px);
+  top: calc(50% - 94px);
+  width: 188px;
+  height: 188px;
+}
+
+.list {
+  width: 392px;
+  height: 392px;
+  border-width: 2px;
+  border-radius: 100%;
+  border-color: #ffc852;
+  border-style: solid;
+  position: relative;
+}
+
+.icon {
+  display: block;
+  width: 60px;
+  height: 60px;
+  background-color: #ffa768;
+  border-radius: 100%;
+  margin: 0 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 45%;
+
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  width: 300px;
+  max-width: 300px;
+}
+
+.itemWaterproof,
+.itemProtect,
+.itemNocolor {
+  flex-direction: row-reverse;
+}
+
+.itemWaterproof {
+  left: -195px;
+  top: 20px;
+}
+
+.itemCheap {
+  right: -195px;
+  top: 20px;
+}
+
+.itemProtect {
+  left: -250px;
+  top: 160px;
+}
+
+.itemNodust {
+  right: -250px;
+  top: 160px;
+}
+
+.itemNocolor {
+  left: -195px;
+  top: 300px;
+}
+
+.itemEco {
+  right: -195px;
+  top: 300px;
+}
+
+@media (max-width: 1023px) {
+  .list {
+    width: 312px;
+    height: 312px;
+  }
+
+  .item {
+    width: 300px;
+    max-width: 300px;
+  } 
+  
+  .listImgWrapper {
+    left: calc(50% - 77px);
+    top: calc(50% - 77px);
+    width: 157px;
+    height: 157px;
+  }
+
+  .itemWaterproof {
+    left: -195px;
+    top: 0;
+  }
+  
+  .itemCheap {
+    right: -195px;
+    top: 0;
+  }
+  
+  .itemProtect {
+    left: -250px;
+    top: 125px;
+  }
+  
+  .itemNodust {
+    right: -250px;
+    top: 125px;
+  }
+  
+  .itemNocolor {
+    left: -195px;
+    top: 250px;
+  }
+  
+  .itemEco {
+    right: -195px;
+    top: 250px;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .wrapper {
+    padding: 0;
+  }
+
+  .titleWapper {
+    margin-bottom: 20px;
+  }
+
+  .list {
+    height: auto;
+    border-width: unset; 
+    border-radius: unset; 
+    border-color: transparent;
+    position: relative;
+  }
+
+  .listImgWrapper {
+    display: none;
+  }
+
+  .item {
+    position: unset;
+    flex-direction: row;
+    margin-bottom: 12px;
+  }
+
+  .icon {
+    width: 45px;
+    height: 45px;
+  }
+}

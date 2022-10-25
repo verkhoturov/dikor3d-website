@@ -30,7 +30,7 @@ export const Section: React.FC<{
   return (
     <section
       className={classnames(styles.sectionContainer, {
-        [styles.sectionPadding0]: noPadding,
+        [styles.sectionPaddingTopBottom0]: noPadding,
       })}
       style={style}
     >

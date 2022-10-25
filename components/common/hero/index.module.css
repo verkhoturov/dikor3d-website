@@ -1,8 +1,9 @@
 .wrapper {
   margin: 0 auto;
   max-width: 1198px;
+  width: 100%;
   min-height: 230px;    
-  padding: 40px 0;
+  padding: 40px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,12 +20,31 @@
 .inner {
   max-width: 700px;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
   
 .subtitle {
   font-size: 18px;
   font-family: 'Open Sans',Arial,sans-serif;
   line-height: 22px;
-  font-weight: 600;
-  color: #000000;
+  font-weight: 500;
+  margin-top: 20px;
+}
+
+.wrapperWhiteText h1,
+.wrapperWhiteText p {
+  color: #ffffff;
+}
+
+@media (max-width: 1023px) {
+  .wrapper {
+    min-height: 160px;    
+    padding: 30px 16px;
+  }
+
+
+  .wrapperBg {
+    min-height: 420px;
+  }
 }

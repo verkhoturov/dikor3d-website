@@ -1,6 +1,12 @@
 import Head from "next/head";
-import Link from "next/link";
 import { Page } from "../components/page";
+import { Section } from "../components/common";
+import { MainHero } from "../components/main-hero";
+import { Advantages } from "../components/advantages";
+import { ProductCatalog } from "../components/product-catalog";
+import { OurProduction } from "../components/our-production";
+import { Conditions } from "../components/conditions";
+import { RequestHero } from "../components/request-hero";
 
 export default function Index() {
   return (
@@ -8,10 +14,22 @@ export default function Index() {
       <Head>
         <title>Dikor catalog</title>
       </Head>
-      <p>main</p>
-      <Link href="/catalog">
-        <a>catalog</a>
-      </Link>
+      <MainHero />
+      <Section>
+        <Advantages />
+      </Section>
+      <Section>
+        <ProductCatalog />
+      </Section>
+      <Section>
+        <OurProduction />
+      </Section>
+      <Section>
+        <Conditions />
+      </Section>
+      <Section>
+        <RequestHero />
+      </Section>
     </Page>
   );
 }

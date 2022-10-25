@@ -10,24 +10,39 @@
 
 .sectionContainer {
   max-width: 1198px;
-  padding: 80px 0;
+  padding: 80px 20px;
   margin: 0 auto;
   background-color: #ffffff;
   position: relative;
+  overflow: hidden;
 }
 
 
-.sectionPadding0 {
-  padding: 0;
+.sectionPaddingTopBottom0 {
+  padding: 0 20px;
 }
 
 .sectionContainerGrayBg {
   max-width: 100%;
-  padding: 80px 0;
   background-color: #efefef;
 }
 
 .sectionInner {
   margin: 0 auto;
   max-width: 1198px;
+}
+
+@media (max-width: 1023px) {
+  .sectionContainer {
+    padding: 60px 16px;
+  }
+
+  .sectionPaddingTopBottom0 {
+    padding: 0 16px;
+  }
+}
+@media (max-width: 767px) {
+  .sectionContainer {
+    padding: 30px 16px;
+  }
 }
