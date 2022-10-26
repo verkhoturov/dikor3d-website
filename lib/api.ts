@@ -1,4 +1,6 @@
 import { CatalogItem } from "./types";
+// import fs from 'fs'
+// import { join } from 'path';
 
 const API_URL = process.env.WORDPRESS_REST_API_URL;
 
@@ -10,6 +12,14 @@ export const getCatalogList = async (): Promise<CatalogItem[]> => {
     console.error(data.errors);
     throw new Error("Failed to fetch catalog list");
   }
+
+  /*
+  // fs.writeFileSync("/public/upload/test.txt", "123");
+  const postsDir = join(process.cwd(), 'public/uploads');
+  const filenames = await fs.promises.readdir(postsDir)
+  console.log("postsDir", postsDir )
+  fs.writeFileSync(postsDir + "/test.txt", "Привет ми ми ми!")
+  */
 
   const list: CatalogItem[] = data.map(({ id, slug, title, acf }) => ({
     id,

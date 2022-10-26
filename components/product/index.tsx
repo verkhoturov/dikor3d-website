@@ -24,7 +24,7 @@ export const Product: React.FC<{
     <div className={styles.wrapper}>
       <div className={styles.gallery}>
         <Image
-          loader={() => imgLink}
+          // loader={() => imgLink}
           className={styles.img}
           src={imgLink}
           alt={name} 
