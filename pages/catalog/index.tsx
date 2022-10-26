@@ -20,6 +20,7 @@ export default function CatalogPage({ catalogList }: CatalogPageProps) {
     <Page>
       <Head>
         <title>Dikor catalog</title>
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" /> 
       </Head>
       <Hero title="Lifestyle accessories created to bring you the joy of usage" />
       <Section isGrayBg>

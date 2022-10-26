@@ -19,6 +19,7 @@ export default function Post({ product }) {
       <Head>
         <title>Dikor | {product?.name}</title>
         <meta property="og:image" content={product?.imgLink} />
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" /> 
       </Head>
       <Section noPadding style={{ marginTop: -80, paddingTop: 40 }}>
         <Back />
