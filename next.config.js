@@ -12,4 +12,9 @@ module.exports = {
       '1065519-cp39830.tmweb.ru',
     ],
   },
+  i18n: {
+    locales: ['en', 'ru', 'ro'],
+    defaultLocale: 'ru',
+    localeDetection: false,
+  },
 }

@@ -17,3 +17,46 @@
 .item {
   margin: 0 14px;
 }
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 400px;
+  padding-left: 100px;
+}
+
+.wrapper {
+  position: relative;
+  background: white;
+
+}
+
+.lang {
+  color: #000000;
+  font-size: 16px;
+  font-family: 'Open Sans',Arial,sans-serif;
+  line-height: 1.55;
+  font-weight: 500;
+}
+
+.selectedLang {
+  padding: 6px;
+  width: 50px;
+  cursor: pointer;
+}
+
+.listLang {
+  position: absolute;
+  top: 30px;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  padding: 6px;
+  width: 50px;
+  display: none;
+}
+
+.wrapper:hover .listLang {
+  display: flex;
+}
