@@ -11,5 +11,12 @@ module.exports = {
     domains: [
       '1065519-cp39830.tmweb.ru',
     ],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '1065519-cp39830.tmweb.ru',
+        pathname: '/wp-content/uploads/**',
+      },
+    ],
   },
 }
