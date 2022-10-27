@@ -54,7 +54,7 @@ export const Product: React.FC<{
 export const Back = () => (
   <Link href="/catalog">
     <a>
-      <span className={styles.backBtn}>Назад в каталог</span>
+      <span className={styles.backBtn}>Назад</span>
     </a>
   </Link>
 );

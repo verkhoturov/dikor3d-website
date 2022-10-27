@@ -101,3 +101,13 @@
     min-height: 125px;
   }
 }
+
+@media (max-width: 767px) {
+  .item  {
+    flex: 0 0 calc(50% - 10px);
+    max-width: calc(50% - 10px);
+    min-height: 200px;
+    margin: 0 5px 20px;
+  }
+
+}

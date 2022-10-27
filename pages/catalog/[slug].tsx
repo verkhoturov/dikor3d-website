@@ -20,7 +20,7 @@ export default function Post({ product }) {
         <title>Dikor | {product?.name}</title>
         <meta property="og:image" content={product?.imgLink} />
       </Head>
-      <Section noPadding style={{ marginTop: -80, paddingTop: 40 }}>
+      <Section noPadding style={{ paddingTop: 20 }}>
         <Back />
         <Product product={product} isLoading={router.isFallback} />
       </Section>
