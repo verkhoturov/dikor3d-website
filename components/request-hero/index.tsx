@@ -26,7 +26,7 @@ export const RequestHero = () => {
           </>
         }
         bgImg={requestImg.src}
-        button={{ text: "оставить заявку", onClick }}
+        button={{ text: "Оставить заявку", onClick }}
         isWhiteText
         tag="div"
       />
