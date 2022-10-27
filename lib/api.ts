@@ -1,6 +1,6 @@
 import { CatalogItem } from "./types";
 
-const API_URL = process.env.WORDPRESS_REST_API_URL;
+const API_URL = `${process.env.WORDPRESS_URL}/wp-json/wp/v2`;
 
 export const getCatalogList = async (): Promise<CatalogItem[]> => {
   const res = await fetch(`${API_URL}/posts`);
@@ -14,7 +14,11 @@ export const getCatalogList = async (): Promise<CatalogItem[]> => {
   const list: CatalogItem[] = data.map(({ id, slug, title, acf }) => ({
     id,
     slug,
-    name: title.rendered,
+    name: {
+      rus: acf.title_rus,
+      rom: acf.title_rom,
+      en: title.rendered,
+    },
     imgLink: acf.image.sizes.large,
     additionalImgLink_1: acf.additional_image_1
       ? acf.additional_image_1.sizes.large
@@ -46,8 +50,16 @@ export const getProduct = async (slug: string): Promise<CatalogItem> => {
   const product = {
     id,
     slug,
-    content: content.rendered,
-    name: title.rendered,
+    content: {
+      rus: acf.description_rus,
+      rom: acf.description_rom,
+      en: content.rendered,
+    },
+    name: {
+      rus: acf.title_rus,
+      rom: acf.title_rom,
+      en: title.rendered,
+    },
     imgLink: acf.image.sizes.large,
     additionalImgLink_1,
     additionalImgLink_2,

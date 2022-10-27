@@ -6,6 +6,7 @@ import { Page } from "../../components/page";
 import { Section } from "../../components/common";
 import { Product, Back } from "../../components/product";
 import { getCatalogList, getProduct } from "../../lib/api";
+import { getProductNameByLang } from "../../utils/getProductNameByLang";
 
 export default function Post({ product }) {
   const router = useRouter();
@@ -14,10 +15,12 @@ export default function Post({ product }) {
     return <ErrorPage statusCode={404} />;
   }
 
+  const productName = getProductNameByLang(router.locale, product?.name);
+
   return (
     <Page>
       <Head>
-        <title>Dikor | {product?.name}</title>
+        <title>Dikor | {productName}</title>
         <meta property="og:image" content={product?.imgLink} />
       </Head>
       <Section noPadding style={{ paddingTop: 20 }}>

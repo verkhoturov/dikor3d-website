@@ -6,7 +6,9 @@
   padding: 0 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between;    
+  position: relative;
+  z-index: 10;
 }
 
 .logoWrapper {
@@ -37,47 +39,6 @@
   min-width: 150px;
 }
 
-.wrapperLang {
-  position: relative;
-  margin-right: 40px;
-}
-
-.lang {
-  color: #000000;
-  font-size: 16px;
-  font-family: 'Open Sans',Arial,sans-serif;
-  line-height: 1.55;
-  font-weight: 500;
-}
-
-.selectedLang {
-  padding: 6px;
-  width: 50px;
-  cursor: pointer;
-}
-
-.listLang {
-  position: absolute;
-  top: 30px;
-  display: flex;
-  flex-direction: column;
-  background: white;
-  padding: 6px;
-  width: 50px;
-}
-
-.iconWrapper {
-  position: absolute;
-  top: 9px;
-  right: -5px;
-  transform: rotate(90deg);
-  transition: 0.2s;
-}
-
-.iconWrapperOpen {
-  transform: rotate(270deg);
-}
-
 @media (max-width: 767px) {
 
   .logoWrapper {
@@ -98,9 +59,5 @@
 
   .socAndLangWrapper > a {
     display: none;
-  }
-
-  .wrapperLang {
-    margin-right: 0;
   }
 }

@@ -3,6 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./index.module.css";
 import { CatalogItem } from "../../lib/types";
+import { useRouter } from "next/router";
+import { getProductNameByLang } from "../../utils/getProductNameByLang";
 
 interface CatalogProps {
   list: CatalogItem[];
@@ -16,6 +18,11 @@ const Item: React.FC<CatalogItem> = ({
   price,
   additionalImgLink_1,
 }) => {
+  const router = useRouter();
+  const locale = router.locale;
+
+  const itemName = getProductNameByLang(locale, name);
+
   if (!slug) return <div className={styles.item}></div>;
   return (
     <Link href={`/catalog/${slug}`}>
@@ -25,7 +32,7 @@ const Item: React.FC<CatalogItem> = ({
             className={styles.img}
             // loader={() => imgLink}
             src={imgLink}
-            alt={name}
+            alt={itemName}
             width={386}
             height={390}
             layout="responsive"
@@ -37,7 +44,7 @@ const Item: React.FC<CatalogItem> = ({
               className={styles.img}
               // loader={() => additionalImgLink_1}
               src={additionalImgLink_1}
-              alt={name}
+              alt={itemName}
               width={386}
               height={390}
               layout="responsive"
@@ -46,7 +53,7 @@ const Item: React.FC<CatalogItem> = ({
         )}
         <div className={styles.desc}>
           <div>
-            <p className={styles.name}>{name}</p>
+            <p className={styles.name}>{itemName}</p>
             <p className={styles.price}>
               {price} р. <span>/ шт </span>
             </p>
@@ -61,9 +68,27 @@ export const Catalog: React.FC<CatalogProps> = ({ list, isLoading }) => {
   if (isLoading)
     return (
       <div className={styles.wrapper}>
-        <Item id={0} slug="" name="" imgLink="" price="" />
-        <Item id={0} slug="" name="" imgLink="" price="" />
-        <Item id={0} slug="" name="" imgLink="" price="" />
+        <Item
+          id={0}
+          slug=""
+          name={{ en: "", rus: "", rom: "" }}
+          imgLink=""
+          price=""
+        />
+        <Item
+          id={0}
+          slug=""
+          name={{ en: "", rus: "", rom: "" }}
+          imgLink=""
+          price=""
+        />
+        <Item
+          id={0}
+          slug=""
+          name={{ en: "", rus: "", rom: "" }}
+          imgLink=""
+          price=""
+        />
       </div>
     );
 

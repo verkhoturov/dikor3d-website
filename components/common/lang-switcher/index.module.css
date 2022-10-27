@@ -1,0 +1,46 @@
+.wrapperLang {
+  position: relative;
+  margin-right: 40px;
+}
+
+.lang {
+  color: #000000;
+  font-size: 16px;
+  font-family: 'Open Sans',Arial,sans-serif;
+  line-height: 1.55;
+  font-weight: 500;
+}
+
+.selectedLang {
+  padding: 6px;
+  width: 65px;
+  cursor: pointer;
+}
+
+.listLang {
+  position: absolute;
+  top: 30px;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  padding: 6px;
+  width: 50px;
+}
+
+.iconWrapper {
+  position: absolute;
+  top: 9px;
+  right: 8px;
+  transform: rotate(90deg);
+  transition: 0.2s;
+}
+
+.iconWrapperOpen {
+  transform: rotate(270deg);
+}
+
+@media (max-width: 767px) {
+  .wrapperLang {
+    margin-right: 0;
+  }
+}
