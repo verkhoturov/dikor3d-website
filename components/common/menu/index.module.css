@@ -9,6 +9,11 @@
   justify-content: space-between;
 }
 
+.logoWrapper {
+  width: 90px;
+  height: 35px;
+}
+
 .list {
   list-style: none;
   display: flex;
@@ -22,14 +27,19 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-width: 400px;
-  padding-left: 100px;
+  margin-left: 100px;
 }
 
-.wrapper {
-  position: relative;
-  background: white;
+.socAndLangWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 150px;
+}
 
+.wrapperLang {
+  position: relative;
+  margin-right: 40px;
 }
 
 .lang {
@@ -54,9 +64,43 @@
   background: white;
   padding: 6px;
   width: 50px;
-  display: none;
 }
 
-.wrapper:hover .listLang {
-  display: flex;
+.iconWrapper {
+  position: absolute;
+  top: 9px;
+  right: -3px;
+  transform: rotate(90deg);
+  transition: 0.2s;
+}
+
+.iconWrapperOpen {
+  transform: rotate(270deg);
+}
+
+@media (max-width: 767px) {
+
+  .logoWrapper {
+    width: 68px;
+    height: 27px;
+  }
+
+  .header {
+    padding: 0 12px;
+  }
+
+  .nav {
+    margin-left: 0;
+  }
+  .socAndLangWrapper {
+    min-width: auto;
+  }
+
+  .socAndLangWrapper > a {
+    display: none;
+  }
+
+  .wrapperLang {
+    margin-right: 0;
+  }
 }
