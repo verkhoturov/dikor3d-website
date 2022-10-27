@@ -69,7 +69,7 @@
 .iconWrapper {
   position: absolute;
   top: 9px;
-  right: -3px;
+  right: -5px;
   transform: rotate(90deg);
   transition: 0.2s;
 }
