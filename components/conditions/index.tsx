@@ -1,5 +1,7 @@
 import React from "react";
-import { H2, Paragraph } from "../common";
+import { H2, Paragraph, Button } from "../common";
+import { FeedbackModal } from "../feedback";
+
 import styles from "./index.module.css";
 
 interface ItemProps {
@@ -20,6 +22,7 @@ const Item: React.FC<ItemProps> = ({ desc, iconLink }) => {
 };
 
 export const Conditions = () => {
+  const [showModal, setShowModal] = React.useState(false);
   return (
     <div className={styles.titleWapper}>
       <div className={styles.titleWapper}>
@@ -45,6 +48,15 @@ export const Conditions = () => {
         <Item desc="Доставка по Молдове за 48 часов, транспортной компанией ”новая почта”" />
         <Item desc="У всей нашей продукции есть сертификация" />
       </ul>
+
+
+      <div className={styles.btnWrapper}>
+          <Button onClick={() => setShowModal(true)}>
+          Связаться с менеджером
+          </Button>
+        </div>
+
+      {showModal && <FeedbackModal onClose={() => setShowModal(false)} />}
     </div>
   );
 };

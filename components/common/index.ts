@@ -4,6 +4,7 @@ import { Menu } from "./menu";
 import { Footer } from "./footer";
 import { Meta } from "./meta";
 import { Hero } from "./hero";
+import { Button } from "./button";
 
 export {
   Main,
@@ -16,4 +17,5 @@ export {
   Meta,
   Hero,
   Section,
+  Button,
 };

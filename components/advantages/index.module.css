@@ -3,7 +3,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px 20px 0;
+  padding: 40px 20px 20px;
+  margin-bottom: -20px;
   overflow: hidden;
 }
  
@@ -94,7 +95,19 @@
   top: 300px;
 }
 
+.btnWrapper {
+  position: absolute;
+  bottom: -16px;
+  left: calc(50% - 75px);
+}
+
 @media (max-width: 1023px) {
+
+  .wrapper {
+    padding: 40px 20px 50px;
+    margin-bottom: -40px;
+  }
+
   .list {
     width: 312px;
     height: 312px;
@@ -141,6 +154,15 @@
     right: -195px;
     top: 250px;
   }
+
+  .btnWrapper {
+    left: calc(50% - 60px);
+    bottom: -25px;
+  }
+
+  .btnWrapper > button {
+    min-width: 120px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -174,5 +196,15 @@
   .icon {
     width: 45px;
     height: 45px;
+  }
+
+  .btnWrapper {
+    position: static;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
   }
 }

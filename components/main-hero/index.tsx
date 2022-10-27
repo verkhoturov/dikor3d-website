@@ -1,7 +1,15 @@
+import React from "react";
 import { Hero } from "../common";
+import { FeedbackModal } from "../feedback";
 import heroImg from "./img/main-hero.png";
 
 export const MainHero = () => {
+  const [showModal, setShowModal] = React.useState(false);
+
+  const onClick = () => {
+    setShowModal(true);
+  };
+
   return (
     <>
       <Hero
@@ -16,8 +24,11 @@ export const MainHero = () => {
           </>
         }
         bgImg={heroImg.src}
+        button={{ text: "Связаться с менеджером", onClick }}
         isWhiteText
       />
+
+      {showModal && <FeedbackModal onClose={() => setShowModal(false)} />}
     </>
   );
 };

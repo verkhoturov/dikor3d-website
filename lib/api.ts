@@ -1,6 +1,7 @@
 import { CatalogItem } from "./types";
 
 const API_URL = `${process.env.WORDPRESS_URL}/wp-json/wp/v2`;
+// const FEEDBACK_URL = `${process.env.WORDPRESS_URL}/wp-json/contact-form-7/v1/contact-forms/${process.env.CONTACT_FORM_7_ID}/feedback`;
 
 export const getCatalogList = async (): Promise<CatalogItem[]> => {
   const res = await fetch(`${API_URL}/posts`);
@@ -68,3 +69,12 @@ export const getProduct = async (slug: string): Promise<CatalogItem> => {
 
   return product;
 };
+
+/*
+export const onSendFeedback = async () => {
+  const res = await fetch(FEEDBACK_URL);
+  const data = await res.json();
+
+  console.log(data)
+}
+*/

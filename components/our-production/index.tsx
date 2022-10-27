@@ -1,13 +1,14 @@
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
-import { H2, Paragraph } from "../common";
+import { H2, Paragraph, Button } from "../common";
+import { FeedbackModal } from "../feedback";
 
 import prodImg from "./img/prod.jpeg";
 
 import styles from "./index.module.css";
 
 export const OurProduction = () => {
+  const [showModal, setShowModal] = React.useState(false);
   return (
     <div className={styles.wrapper}>
       <div className={styles.imgCol}>
@@ -37,7 +38,11 @@ export const OurProduction = () => {
           Мы производим 3д плиты на заказы по индивидуальным чертежам. Это может
           быть любая геометрия, либо художественный рисунок любой сложности
         </Paragraph>
+
+        <Button onClick={() => setShowModal(true)}>Связаться с нами</Button>
       </div>
+
+      {showModal && <FeedbackModal onClose={() => setShowModal(false)} />}
     </div>
   );
 };

@@ -1,0 +1,44 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: unset;
+  border-radius: 30px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: 'Arial',Arial,sans-serif;
+  line-height: 1.55;
+  font-weight: 600;
+  height: 55px;
+  min-width: 150px;
+  padding: 0 20px;
+  transition: 0.2s;
+}
+
+.sharp {
+  border-radius: unset;
+}
+
+.button:hover {
+  background-color: #ffa768;
+  color: black;
+}
+
+.secondary {
+  background-color: #ffa768;
+  color: black;
+}
+
+@media (max-width: 1023px) {
+  .wrapper {
+    min-height: 160px;    
+    padding: 30px 16px;
+  }
+
+
+  .wrapperBg {
+    min-height: 420px;
+  }
+}

@@ -43,6 +43,11 @@
   background-color: #ffa768;
   margin-bottom: 20px;
 }
+
+.btnWrapper {
+  margin: 60px auto 0;
+  width: 220px;
+}
  
 
 @media (max-width: 1023px) {

@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./index.module.css";
 import classnames from "classnames";
 import { H1 } from "../index";
+import { Button } from "../button";
 
 interface ContainerProps {
   children: React.ReactNode;
@@ -36,7 +37,11 @@ export const Hero: React.FC<{
   bgImg?: string;
   isWhiteText?: boolean;
   tag?: "header" | "section" | "div";
-}> = ({ title, subtitle, bgImg, isWhiteText, tag = "header" }) => {
+  button?: {
+    text: string;
+    onClick: () => void;
+  };
+}> = ({ title, subtitle, bgImg, isWhiteText, tag = "header", button }) => {
   return (
     <Container
       className={classnames(styles.wrapper, {
@@ -49,6 +54,7 @@ export const Hero: React.FC<{
       <div className={styles.inner}>
         <H1>{title}</H1>
         {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
+        {button && <Button onClick={button.onClick}>{button.text}</Button>}
       </div>
     </Container>
   );

@@ -1,9 +1,16 @@
+import React from "react";
 import { Hero } from "../common";
+import { FeedbackModal } from "../feedback";
 import requestImg from "./img/request.png";
 
 import styles from "./index.module.css";
 
 export const RequestHero = () => {
+  const [showModal, setShowModal] = React.useState(false);
+
+  const onClick = () => {
+    setShowModal(true);
+  };
   return (
     <div className={styles.wrapper}>
       <Hero
@@ -19,9 +26,11 @@ export const RequestHero = () => {
           </>
         }
         bgImg={requestImg.src}
+        button={{ text: "оставить заявку", onClick }}
         isWhiteText
         tag="div"
       />
+      {showModal && <FeedbackModal onClose={() => setShowModal(false)} />}
     </div>
   );
 };

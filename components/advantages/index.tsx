@@ -1,7 +1,8 @@
 import React from "react";
 import classnames from "classnames";
 import Image from "next/image";
-import { H2, Paragraph } from "../common";
+import { H2, Paragraph, Button } from "../common"; 
+import { FeedbackModal } from "../feedback";
 
 import surfaceImg from "./img/surface.jpeg";
 import cheapImg from "./img/cheap.png";
@@ -14,6 +15,8 @@ import protectImg from "./img/protect.png";
 import styles from "./index.module.css";
 
 export const Advantages = () => {
+  const [showModal, setShowModal] = React.useState(false);
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.titleWapper}>
@@ -83,7 +86,13 @@ export const Advantages = () => {
             <Paragraph>Экологически чистые</Paragraph>
           </li>
         </ul>
+        <div className={styles.btnWrapper}>
+          <Button onClick={() => setShowModal(true)} isSecondary>
+            Заказать
+          </Button>
+        </div>
       </div>
+      {showModal && <FeedbackModal onClose={() => setShowModal(false)} />}
     </div>
   );
 };
