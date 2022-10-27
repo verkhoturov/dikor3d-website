@@ -20,6 +20,12 @@ export const FeedbackModal = ({ onClose }: FeedbackModalProps) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+
+    if (!name || !email || !phone) {
+      setError("Заполните все поля");
+      return;
+    }
+
     const formData = new FormData(formRef.current);
     const res = await fetch(
       "http://admin.dikor3d.com/wp-json/contact-form-7/v1/contact-forms/138/feedback",
@@ -27,8 +33,10 @@ export const FeedbackModal = ({ onClose }: FeedbackModalProps) => {
     );
     const data = await res.json();
 
-    if (!data.status) {
-      setError("При отправке сообщения произошла ошибка. Пожалуйста, попробуйте ещё раз позже.");
+    if (!data.status || data.error || data.status == "validation_failed") {
+      setError(
+        "При отправке сообщения произошла ошибка. Пожалуйста, попробуйте ещё раз позже."
+      );
     }
 
     if (data.status == "mail_sent") {
@@ -45,9 +53,9 @@ export const FeedbackModal = ({ onClose }: FeedbackModalProps) => {
     <Modal onClose={onClose}>
       {isSucces ? (
         <div className={styles.succesWrapper}>
-            <i className={styles.icon}>
-                <EmailIcon />
-            </i>
+          <i className={styles.icon}>
+            <EmailIcon />
+          </i>
           <Paragraph>Заявка успешно отправлена!</Paragraph>
           <Paragraph>В ближайшее внемя с вами свяжется менеджер</Paragraph>
         </div>
@@ -60,7 +68,10 @@ export const FeedbackModal = ({ onClose }: FeedbackModalProps) => {
               name="your-name"
               type="text"
               value={name}
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => {
+                setName(e.target.value);
+                setError("");
+              }}
             />
           </label>
           <label className={styles.label}>
@@ -70,7 +81,10 @@ export const FeedbackModal = ({ onClose }: FeedbackModalProps) => {
               name="your-email"
               type="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                setError("");
+              }}
             />
           </label>
           <label className={styles.label}>
@@ -80,7 +94,10 @@ export const FeedbackModal = ({ onClose }: FeedbackModalProps) => {
               name="your-tel"
               type="tel"
               value={phone}
-              onChange={(e) => setPhone(e.target.value)}
+              onChange={(e) => {
+                setPhone(e.target.value);
+                setError("");
+              }}
             />
           </label>
 
