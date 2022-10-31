@@ -42,7 +42,7 @@
   object-fit: cover;
 }
 
-.linkBtn {
+.btn {
   color: #ffffff;
   font-size: 14px;
   line-height: 1.55;
@@ -55,9 +55,12 @@
   max-width: 160px;
   transition: 0.2s;
   margin-bottom: 20px;
+  border: unset;
+  min-width: 100px;
+  cursor: pointer;
 }
 
-.linkBtn:hover {
+.btn:hover {
   background-color: #7b7b7b;
   color: #ffffff;
 }

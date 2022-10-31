@@ -3,6 +3,8 @@ import { Modal } from "../common/modal";
 import { Paragraph } from "../common/headings";
 import { Button } from "../common/button";
 import { EmailIcon } from "./email-icon";
+import { useRouter } from "next/router";
+import { useLang } from "../../utils/useLang";
 
 import styles from "./index.module.css";
 
@@ -11,7 +13,11 @@ interface FeedbackModalProps {
 }
 
 export const FeedbackModal = ({ onClose }: FeedbackModalProps) => {
+  const router = useRouter();
+  const t = useLang(router.locale);
+
   const formRef = React.useRef(null);
+
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [phone, setPhone] = React.useState("");
@@ -62,7 +68,7 @@ export const FeedbackModal = ({ onClose }: FeedbackModalProps) => {
       ) : (
         <form ref={formRef} onSubmit={onSubmit} className={styles.form}>
           <label className={styles.label}>
-            <Paragraph>Имя</Paragraph>
+            <Paragraph>{t.feedback.name}</Paragraph>
             <input
               className={styles.input}
               name="your-name"
@@ -75,7 +81,7 @@ export const FeedbackModal = ({ onClose }: FeedbackModalProps) => {
             />
           </label>
           <label className={styles.label}>
-            <Paragraph>Эл. почта</Paragraph>
+            <Paragraph>{t.feedback.email}</Paragraph>
             <input
               className={styles.input}
               name="your-email"
@@ -88,7 +94,7 @@ export const FeedbackModal = ({ onClose }: FeedbackModalProps) => {
             />
           </label>
           <label className={styles.label}>
-            <Paragraph>Телефон</Paragraph>
+            <Paragraph>{t.feedback.phone}</Paragraph>
             <input
               className={styles.input}
               name="your-tel"
@@ -106,7 +112,7 @@ export const FeedbackModal = ({ onClose }: FeedbackModalProps) => {
           </div>
 
           <Button type="submit" isSharp>
-            Отправить заявку
+            {t.feedback.button}
           </Button>
         </form>
       )}

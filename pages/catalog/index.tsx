@@ -21,13 +21,13 @@ export default function CatalogPage({ catalogList }: CatalogPageProps) {
       <Head>
         <title>Dikor catalog</title>
       </Head>
-      <Hero title="Lifestyle accessories created to bring you the joy of usage" />
+      {/* <Hero title="Lifestyle accessories created to bring you the joy of usage" /> */}
       <Section isGrayBg>
         <Catalog list={catalogList} isLoading={isLoading} />
       </Section>
-      <Section>
+      {/* <Section>
         <Delivery />
-      </Section>
+      </Section>*/}
     </Page>
   );
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import classnames from "classnames";
 import Image from "next/image";
-import { H2, Paragraph, Button } from "../common"; 
+import { H2, Paragraph, Button } from "../common";
 import { FeedbackModal } from "../feedback";
 
 import surfaceImg from "./img/surface.jpeg";
@@ -12,17 +12,22 @@ import nodustImg from "./img/nodust.png";
 import waterproofImg from "./img/waterproof.png";
 import protectImg from "./img/protect.png";
 
+import { useRouter } from "next/router";
+import { useLang } from "../../utils/useLang";
+
 import styles from "./index.module.css";
 
 export const Advantages = () => {
+  const router = useRouter();
+  const t = useLang(router.locale);
+
   const [showModal, setShowModal] = React.useState(false);
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.titleWapper}>
         <H2>
-          Преимущества <br />
-          нашей продукции
+          {t.advantages.title}
         </H2>
       </div>
 
@@ -43,7 +48,7 @@ export const Advantages = () => {
               className={styles.icon}
               style={{ backgroundImage: `url(${waterproofImg.src})` }}
             ></i>
-            <Paragraph>Не боятся воды</Paragraph>
+            <Paragraph>{t.advantages.itemWaterproof}</Paragraph>
           </li>
 
           <li className={classnames(styles.item, styles.itemProtect)}>
@@ -51,7 +56,7 @@ export const Advantages = () => {
               className={styles.icon}
               style={{ backgroundImage: `url(${protectImg.src})` }}
             ></i>
-            <Paragraph>Защита от царапин</Paragraph>
+            <Paragraph>{t.advantages.itemProtect}</Paragraph>
           </li>
 
           <li className={classnames(styles.item, styles.itemNocolor)}>
@@ -59,7 +64,7 @@ export const Advantages = () => {
               className={styles.icon}
               style={{ backgroundImage: `url(${nocolorImg.src})` }}
             ></i>
-            <Paragraph>Не нужно краски</Paragraph>
+            <Paragraph>{t.advantages.itemNocolor}</Paragraph>
           </li>
 
           <li className={classnames(styles.item, styles.itemCheap)}>
@@ -67,7 +72,7 @@ export const Advantages = () => {
               className={styles.icon}
               style={{ backgroundImage: `url(${cheapImg.src})` }}
             ></i>
-            <Paragraph>Дешевый монтаж</Paragraph>
+            <Paragraph>{t.advantages.itemCheap}</Paragraph>
           </li>
 
           <li className={classnames(styles.item, styles.itemNodust)}>
@@ -75,7 +80,7 @@ export const Advantages = () => {
               className={styles.icon}
               style={{ backgroundImage: `url(${nodustImg.src})` }}
             ></i>
-            <Paragraph>Не собирают пыль</Paragraph>
+            <Paragraph>{t.advantages.itemNodust}</Paragraph>
           </li>
 
           <li className={classnames(styles.item, styles.itemEco)}>
@@ -83,12 +88,12 @@ export const Advantages = () => {
               className={styles.icon}
               style={{ backgroundImage: `url(${ecoImg.src})` }}
             ></i>
-            <Paragraph>Экологически чистые</Paragraph>
+            <Paragraph>{t.advantages.itemNocolor}</Paragraph>
           </li>
         </ul>
         <div className={styles.btnWrapper}>
           <Button onClick={() => setShowModal(true)} isSecondary>
-            Заказать
+            {t.advantages.button}
           </Button>
         </div>
       </div>

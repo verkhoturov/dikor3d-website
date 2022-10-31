@@ -2,8 +2,13 @@ import React from "react";
 import { Hero } from "../common";
 import { FeedbackModal } from "../feedback";
 import heroImg from "./img/main-hero.png";
+import { useRouter } from "next/router";
+import { useLang } from "../../utils/useLang";
 
 export const MainHero = () => {
+  const router = useRouter();
+  const t = useLang(router.locale);
+
   const [showModal, setShowModal] = React.useState(false);
 
   const onClick = () => {
@@ -13,18 +18,10 @@ export const MainHero = () => {
   return (
     <>
       <Hero
-        title={
-          <>
-            СТИЛЬНЫЕ 3D МОДЕЛИ <br /> ДЛЯ ИНТЕРЬЕРОВ И ФАСАДОВ
-          </>
-        }
-        subtitle={
-          <>
-            бесплатный выезд замерщика <br /> с образцами по Молдове
-          </>
-        }
+        title={t.mainHero.title}
+        subtitle={t.mainHero.subtitle}
         bgImg={heroImg.src}
-        button={{ text: "Связаться с менеджером", onClick }}
+        button={{ text: t.mainHero.button, onClick }}
         isWhiteText
       />
 
