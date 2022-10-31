@@ -57,7 +57,7 @@ export const Product: React.FC<{
       <div className={styles.descWrapper}>
         <h2 className={styles.name}>{productContent.name}</h2>
         <p className={styles.price}>
-          {price} р. <span>/ шт </span>
+          {price} р. <span>/ {t.common.amount} </span>
         </p>
 
         <button className={styles.btn} onClick={() => setShowModal(true)}>

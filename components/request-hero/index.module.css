@@ -1,6 +1,8 @@
 .wrapper {
   display: flex; 
   max-height: 439px;
+  margin: 0 -16px;
+  width: calc(100% + 32px);
 }
 
 .wrapper > div {

@@ -13,11 +13,14 @@ import itemImg_2 from "./img/item-3.png";
 import styles from "./index.module.css";
 
 interface ItemProps {
-  desc: string | React.ReactNode;
+  content: { main: string | React.ReactNode; desc: string | React.ReactNode };
   imgLink: string;
 }
 
-const Item: React.FC<ItemProps> = ({ desc, imgLink }) => {
+const Item: React.FC<ItemProps> = ({ content, imgLink }) => {
+  const router = useRouter();
+  const t = useLang(router.locale);
+
   return (
     <div className={styles.item}>
       <Image
@@ -30,11 +33,14 @@ const Item: React.FC<ItemProps> = ({ desc, imgLink }) => {
         layout="responsive"
       />
 
-      <div className={styles.desc}>
-        <Paragraph>{desc}</Paragraph>
+      <div className={styles.content}>
+        <Paragraph>
+          <span>{content.main}</span>{" "}
+          <span className={styles.desc}>{content.desc}</span>
+        </Paragraph>
 
         <Link href={`/catalog`}>
-          <a>Смотреть всю коллекцию</a>
+          <a>{t.productCatalog.link}</a>
         </Link>
       </div>
     </div>
@@ -42,7 +48,6 @@ const Item: React.FC<ItemProps> = ({ desc, imgLink }) => {
 };
 
 export const ProductCatalog = () => {
-
   const router = useRouter();
   const t = useLang(router.locale);
 
@@ -53,18 +58,9 @@ export const ProductCatalog = () => {
       </div>
 
       <div className={styles.inner}>
-        <Item
-          imgLink={itemImg_1.src}
-          desc={t.productCatalog.card1}
-        />
-        <Item
-          imgLink={itemImg_2.src}
-          desc={t.productCatalog.card2}
-        />
-        <Item
-          imgLink={itemImg_3.src}
-          desc={t.productCatalog.card3}
-        />
+        <Item imgLink={itemImg_1.src} content={t.productCatalog.card1} />
+        <Item imgLink={itemImg_2.src} content={t.productCatalog.card2} />
+        <Item imgLink={itemImg_3.src} content={t.productCatalog.card3} />
       </div>
     </>
   );

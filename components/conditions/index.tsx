@@ -49,7 +49,9 @@ export const Conditions = () => {
       </ul>
 
       <div className={styles.btnWrapper}>
-        <Button onClick={() => setShowModal(true)}>{t.common.request}</Button>
+        <Button onClick={() => setShowModal(true)}>
+          {t.common.requestSecondary}
+        </Button>
       </div>
 
       {showModal && <FeedbackModal onClose={() => setShowModal(false)} />}

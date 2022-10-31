@@ -4,9 +4,10 @@ export const en = {
   common: {
     order: "Order",
     request: "Leave a request",
-    requestSecondary: "Связаться с менеджером",
+    requestSecondary: "Contact manager",
     loading: "Loading",
     back: "Back",
+    amount: "qty",
   },
   menu: {
     main: "Main",
@@ -50,11 +51,19 @@ export const en = {
   },
   productCatalog: {
     title: "Product Catalog",
-    card1:
-      "The Premium collection is 3D gypsum panels in a unique vinyl decorative coating. The vinyl coatings create a visual effect unattainable with any type of paint.",
-    card2:
-      "The Shine collection is a 3D light plaster panel. Some of the wall panels in our collection can glow. Plaster 3D panels of Shine collection is a new and improved version of the usual 3D panels, here each relief panel has a companion in the form of a light 3D panel. LEDs are built into the relief elements, the electrical wiring is hidden behind the panels - the glow is distributed, and the light sources are not visible. At night, the wall turns into a bright, unusual and expressive art installation. You have to see it once!",
-    card3: "Platinum collection - seam gypsum 3D panels. By choosing embossed panels of Platinum collection, you can quickly and easily update the interior and spend minimal time on it. Seam 3D panels do not require any preparatory work and grouting. The possibility of choosing 3D panels from Platinum collection allows you to eliminate the cost of finishing. The panels are installed in a seamless way that preserves the integrity and allows you to create monolithic compositions.",
+    link: "See collection",
+    card1: {
+      main: "The Premium collection is 3D gypsum panels in a unique vinyl decorative coating.",
+      desc: "The vinyl coatings create a visual effect unattainable with any type of paint.",
+    },
+    card2: {
+      main: "The Shine collection is a 3D light plaster panel.",
+      desc: "Some of the wall panels in our collection can glow. Plaster 3D panels of Shine collection is a new and improved version of the usual 3D panels, here each relief panel has a companion in the form of a light 3D panel. LEDs are built into the relief elements, the electrical wiring is hidden behind the panels - the glow is distributed, and the light sources are not visible. At night, the wall turns into a bright, unusual and expressive art installation. You have to see it once!",
+    },
+    card3: {
+      main: "Platinum collection - seam gypsum 3D panels.",
+      desc: "Some of the wall panels in our collection can glow. By choosing embossed panels of Platinum collection, you can quickly and easily update the interior and spend minimal time on it. Seam 3D panels do not require any preparatory work and grouting. The possibility of choosing 3D panels from Platinum collection allows you to eliminate the cost of finishing. The panels are installed in a seamless way that preserves the integrity and allows you to create monolithic compositions.",
+    },
   },
   ourProdaction: {
     title: "Our production",
@@ -71,10 +80,10 @@ export const en = {
       </>
     ),
     subtitle:
-      "We guarantee a thorough and individual approach to each of our customers.",
+      "We guarantee a thorough and individual approach to each of our customers",
     list: {
       item1:
-        "Designer's visit to the object, detailed consultation, selection of collection, measurement.",
+        "Designer's visit to the object, detailed consultation, selection of collection, measurement",
       item2:
         "Possibility to produce any 3D design according to your preference",
       item3: "Each element has its own sealed package",
