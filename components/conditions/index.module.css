@@ -47,6 +47,8 @@
 .btnWrapper {
   margin: 60px auto 0;
   width: 220px;
+  display: flex;
+  justify-content: center;
 }
  
 

@@ -2,6 +2,9 @@ import React from "react";
 import { H2, Paragraph, Button } from "../common";
 import { FeedbackModal } from "../feedback";
 
+import { useRouter } from "next/router";
+import { useLang } from "../../utils/useLang";
+
 import styles from "./index.module.css";
 
 interface ItemProps {
@@ -22,39 +25,32 @@ const Item: React.FC<ItemProps> = ({ desc, iconLink }) => {
 };
 
 export const Conditions = () => {
+  const router = useRouter();
+  const t = useLang(router.locale);
   const [showModal, setShowModal] = React.useState(false);
+
   return (
     <div className={styles.titleWapper}>
       <div className={styles.titleWapper}>
-        <H2>
-          Условия для <br />
-          наших покупателей
-        </H2>
+        <H2>{t.conditions.title}</H2>
       </div>
       <div className={styles.subtitleWapper}>
-        <h3>
-          Мы гарантируем тщательный и индивидуальный
-          <br />
-          подход к каждому нашему клиенту
-        </h3>
+        <h3>{t.conditions.subtitle}</h3>
       </div>
 
       <ul className={styles.list}>
-        <Item desc="Выезд на объект дизайнера, подробная консультация, подбор коллекции, замер" />
-        <Item desc="Возможность изготовления любого дизайна ЗD панелей по вашему предпочтению" />
-        <Item desc="Каждый элемент имеет собственнуюгерметичную упаковку" />
+        <Item desc={t.conditions.list.item1} />
+        <Item desc={t.conditions.list.item2} />
+        <Item desc={t.conditions.list.item3} />
 
-        <Item desc="Гарантия качества материалов, натуральность и экологическая чистота" />
-        <Item desc="Доставка по Молдове за 48 часов, транспортной компанией ”новая почта”" />
-        <Item desc="У всей нашей продукции есть сертификация" />
+        <Item desc={t.conditions.list.item4} />
+        <Item desc={t.conditions.list.item5} />
+        <Item desc={t.conditions.list.item6} />
       </ul>
 
-
       <div className={styles.btnWrapper}>
-          <Button onClick={() => setShowModal(true)}>
-          Связаться с менеджером
-          </Button>
-        </div>
+        <Button onClick={() => setShowModal(true)}>{t.common.request}</Button>
+      </div>
 
       {showModal && <FeedbackModal onClose={() => setShowModal(false)} />}
     </div>

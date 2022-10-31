@@ -3,6 +3,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { H2, Paragraph } from "../common";
 
+import { useRouter } from "next/router";
+import { useLang } from "../../utils/useLang";
+
 import itemImg_1 from "./img/item-1.png";
 import itemImg_3 from "./img/item-2.png";
 import itemImg_2 from "./img/item-3.png";
@@ -39,37 +42,28 @@ const Item: React.FC<ItemProps> = ({ desc, imgLink }) => {
 };
 
 export const ProductCatalog = () => {
+
+  const router = useRouter();
+  const t = useLang(router.locale);
+
   return (
     <>
       <div className={styles.titleWapper}>
-        <H2>Каталог продукции</H2>
+        <H2>{t.productCatalog.title}</H2>
       </div>
 
       <div className={styles.inner}>
         <Item
           imgLink={itemImg_1.src}
-          desc={
-            <>
-              Коллекция Premium – <br /> это гипсовые 3D панели в виниловом
-              декоративном покрытии
-            </>
-          }
+          desc={t.productCatalog.card1}
         />
         <Item
           imgLink={itemImg_2.src}
-          desc={
-            <>
-              Коллекция Shine – <br /> это световые гипсовые 3D панели
-            </>
-          }
+          desc={t.productCatalog.card2}
         />
         <Item
           imgLink={itemImg_3.src}
-          desc={
-            <>
-              Коллекция Platinum – <br /> это световые гипсовые
-            </>
-          }
+          desc={t.productCatalog.card3}
         />
       </div>
     </>

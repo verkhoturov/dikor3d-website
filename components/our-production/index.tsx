@@ -3,11 +3,16 @@ import Image from "next/image";
 import { H2, Paragraph, Button } from "../common";
 import { FeedbackModal } from "../feedback";
 
+import { useRouter } from "next/router";
+import { useLang } from "../../utils/useLang";
+
 import prodImg from "./img/prod.jpeg";
 
 import styles from "./index.module.css";
 
 export const OurProduction = () => {
+  const router = useRouter();
+  const t = useLang(router.locale);
   const [showModal, setShowModal] = React.useState(false);
   return (
     <div className={styles.wrapper}>
@@ -15,7 +20,7 @@ export const OurProduction = () => {
         <Image
           className={styles.img}
           src={prodImg.src}
-          alt="Наше производство"
+          alt={t.ourProdaction.title}
           width={678}
           height={430}
           layout="responsive"
@@ -24,22 +29,13 @@ export const OurProduction = () => {
 
       <div className={styles.descCol}>
         <div className={styles.titleWapper}>
-          <H2>Наше производство</H2>
+          <H2>{t.ourProdaction.title}</H2>
         </div>
 
-        <Paragraph>
-          Мы изготавливаеи и представляем именно ту продукцию, которая сейчас во
-          всем мире находится на пике популярности ремонта и отделки. Данный вид
-          отделки регулярно попадает в проекты ведущих дизайнеров и архитекторов
-          во всем мире!
-        </Paragraph>
+        <Paragraph>{t.ourProdaction.desc1}</Paragraph>
+        <Paragraph>{t.ourProdaction.desc2}</Paragraph>
 
-        <Paragraph>
-          Мы производим 3д плиты на заказы по индивидуальным чертежам. Это может
-          быть любая геометрия, либо художественный рисунок любой сложности
-        </Paragraph>
-
-        <Button onClick={() => setShowModal(true)}>Связаться с нами</Button>
+        <Button onClick={() => setShowModal(true)}>{t.common.request}</Button>
       </div>
 
       {showModal && <FeedbackModal onClose={() => setShowModal(false)} />}
