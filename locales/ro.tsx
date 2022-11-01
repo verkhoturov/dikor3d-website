@@ -54,15 +54,28 @@ export const ro = {
     link: "Vezi colecția",
 
     card1: {
-      main: "Colecția Premium este formată din panouri de gips-carton 3D cu un strat decorativ unic de vinil.",
+      main: (
+        <>
+          <strong>Colecția Premium</strong> este formată din panouri de
+          gips-carton 3D cu un strat decorativ unic de vinil.
+        </>
+      ),
       desc: "Acoperirile din vinil creează un efect vizual care nu poate fi obținut cu niciun alt tip de vopsea.",
     },
     card2: {
-      main: "Colecția Shine este un panou de gips 3D iluminat.",
+      main: (
+        <>
+          <strong>Colecția Shine</strong> este un panou de gips 3D iluminat.
+        </>
+      ),
       desc: "Unele dintre panourile de perete din colecția noastră pot străluci. Panourile de gips Shine 3D sunt o versiune nouă și îmbunătățită a panourilor 3D convenționale, în care fiecare panou în relief are un însoțitor sub forma unui panou luminos 3D. LED-urile sunt integrate în elementele de relief, iar cablajul electric este ascuns în spatele panourilor - lumina este distribuită, iar sursele de lumină nu sunt vizibile. Pe timp de noapte, peretele se transformă într-o instalație de artă impresionantă și deosebit de expresivă. Trebuie să o vezi o dată!",
     },
     card3: {
-      main: "Colecția Platinum - panouri 3D din gips fără sudură",
+      main: (
+        <>
+          <strong>Colecția Platinum</strong> - panouri 3D din gips fără sudură
+        </>
+      ),
       desc: "Prin alegerea panourilor de relief din colecția Platinum, vă puteți renova rapid și ușor interiorul și puteți economisi un minim de timp. Panourile 3D fără sudură nu necesită lucrări preliminare și nici chituire. Posibilitatea de a alege panouri 3D din colecția Platinum elimină costurile de finisare. Panourile sunt instalate într-un mod fără sudură, care le menține integritatea și vă permite să creați compoziții monolitice.",
     },
   },

@@ -53,15 +53,28 @@ export const en = {
     title: "Product Catalog",
     link: "See collection",
     card1: {
-      main: "The Premium collection is 3D gypsum panels in a unique vinyl decorative coating.",
+      main: (
+        <>
+          <strong>The Premium collection</strong> is 3D gypsum panels in a
+          unique vinyl decorative coating.
+        </>
+      ),
       desc: "The vinyl coatings create a visual effect unattainable with any type of paint.",
     },
     card2: {
-      main: "The Shine collection is a 3D light plaster panel.",
+      main: (
+        <>
+          <strong>The Shine collection</strong> is a 3D light plaster panel.
+        </>
+      ),
       desc: "Some of the wall panels in our collection can glow. Plaster 3D panels of Shine collection is a new and improved version of the usual 3D panels, here each relief panel has a companion in the form of a light 3D panel. LEDs are built into the relief elements, the electrical wiring is hidden behind the panels - the glow is distributed, and the light sources are not visible. At night, the wall turns into a bright, unusual and expressive art installation. You have to see it once!",
     },
     card3: {
-      main: "Platinum collection - seam gypsum 3D panels.",
+      main: (
+        <>
+          <strong>Platinum collection</strong> - seam gypsum 3D panels.
+        </>
+      ),
       desc: "Some of the wall panels in our collection can glow. By choosing embossed panels of Platinum collection, you can quickly and easily update the interior and spend minimal time on it. Seam 3D panels do not require any preparatory work and grouting. The possibility of choosing 3D panels from Platinum collection allows you to eliminate the cost of finishing. The panels are installed in a seamless way that preserves the integrity and allows you to create monolithic compositions.",
     },
   },
@@ -75,7 +88,8 @@ export const en = {
   conditions: {
     title: (
       <>
-        Terms for<br />
+        Terms for
+        <br />
         our customers
       </>
     ),
@@ -89,14 +103,12 @@ export const en = {
       item3: "Each element has its own sealed package",
       item4:
         "Guarantee of quality materials, naturalness and ecological purity",
-      item5:
-        "*Delivery in Moldova in 48 hours by transport company ”new mail”",
+      item5: "*Delivery in Moldova in 48 hours by transport company ”new mail”",
       item6: "All our products have certification",
     },
   },
   requestHero: {
     title: "Free on-site visit of an inspector with samples and catalogues",
-    subtitle:
-      "If the order is not confirmed, costs are charged - 300 lei",
+    subtitle: "If the order is not confirmed, costs are charged - 300 lei",
   },
 };
