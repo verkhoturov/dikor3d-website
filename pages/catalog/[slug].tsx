@@ -22,6 +22,10 @@ export default function Post({ product }) {
       <Head>
         <title>Dikor | {productName}</title>
         <meta property="og:image" content={product?.imgLink} />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+        />
       </Head>
       <Section noPadding style={{ paddingTop: 20 }}>
         <Back />

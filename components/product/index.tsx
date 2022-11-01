@@ -6,6 +6,8 @@ import { OrderModal } from "../order";
 import { CatalogItem, MultiLanguageContent } from "../../lib/types";
 import { useRouter } from "next/router";
 import { useLang } from "../../utils/useLang";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper";
 
 const getContentByLang = (
   locale: string,
@@ -38,21 +40,63 @@ export const Product: React.FC<{
       </div>
     );
 
-  const { name, content, price, imgLink } = product;
+  const {
+    name,
+    content,
+    price,
+    imgLink,
+    additionalImgLink_1,
+    additionalImgLink_2,
+  } = product;
   const productContent = getContentByLang(locale, name, content);
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.gallery}>
-        <Image
-          // loader={() => imgLink}
-          className={styles.img}
-          src={imgLink}
-          alt={productContent.name}
-          width={500}
-          height={600}
-          layout="responsive"
-        />
+        <Swiper
+          className={styles.mySwiper}
+          modules={[Navigation, Pagination]}
+          spaceBetween={50}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: true }}
+          loop
+        >
+          <SwiperSlide>
+            <Image
+              className={styles.img}
+              src={imgLink}
+              alt={productContent.name}
+              width={500}
+              height={600}
+              layout="responsive"
+            />
+          </SwiperSlide>
+          {additionalImgLink_1 && (
+            <SwiperSlide>
+              <Image
+                className={styles.img}
+                src={additionalImgLink_1}
+                alt={productContent.name}
+                width={500}
+                height={600}
+                layout="responsive"
+              />
+            </SwiperSlide>
+          )}
+          {additionalImgLink_2 && (
+            <SwiperSlide>
+              <Image
+                className={styles.img}
+                src={additionalImgLink_2}
+                alt={productContent.name}
+                width={500}
+                height={600}
+                layout="responsive"
+              />
+            </SwiperSlide>
+          )}
+        </Swiper>
       </div>
       <div className={styles.descWrapper}>
         <h2 className={styles.name}>{productContent.name}</h2>
