@@ -1,10 +1,12 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import styles from "./index.module.css";
-import { CatalogItem } from "../../lib/types";
 import { useRouter } from "next/router";
+import classnames from "classnames";
+import { CatalogItem } from "../../lib/types";
 import { getProductNameByLang } from "../../utils/getProductNameByLang";
+
+import styles from "./index.module.css";
 
 interface CatalogProps {
   list: CatalogItem[];
@@ -27,7 +29,11 @@ const Item: React.FC<CatalogItem> = ({
   return (
     <Link href={`/catalog/${slug}`}>
       <a className={styles.item}>
-        <div className={styles.mainImgWrapper}>
+        <div
+          className={classnames(styles.mainImgWrapper, {
+            [styles.mainImgWrapperHover]: !!additionalImgLink_1,
+          })}
+        >
           <Image
             className={styles.img}
             // loader={() => imgLink}
