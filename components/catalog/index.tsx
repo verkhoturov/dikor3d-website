@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import classnames from "classnames";
 import { CatalogItem } from "../../lib/types";
+import { useLang } from "../../utils/useLang";
 import { getProductNameByLang } from "../../utils/getProductNameByLang";
 
 import styles from "./index.module.css";
@@ -22,6 +23,7 @@ const Item: React.FC<CatalogItem> = ({
 }) => {
   const router = useRouter();
   const locale = router.locale;
+  const t = useLang(locale);
 
   const itemName = getProductNameByLang(locale, name);
 
@@ -61,7 +63,7 @@ const Item: React.FC<CatalogItem> = ({
           <div>
             <p className={styles.name}>{itemName}</p>
             <p className={styles.price}>
-              {price} р. <span>/ шт </span>
+              {price} р. <span>/ {t.common.amount} </span>
             </p>
           </div>
         </div>
