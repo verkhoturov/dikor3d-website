@@ -32,37 +32,22 @@ export const FeedbackModal = ({ onClose }: FeedbackModalProps) => {
       return;
     }
 
-    /*
-
-    const formData = new FormData(formRef.current);
-    const res = await fetch(
-      "https://admin.dikor3d.com/wp-json/contact-form-7/v1/contact-forms/138/feedback",
-      { method: "POST", body: formData }
-    );
+    const body = JSON.stringify({ name, email, phone });
+    const res = await fetch("/api/contact", { method: "POST", body });
     const data = await res.json();
 
-    if (!data.status || data.error || data.status == "validation_failed") {
+    if (data.error || data.status == "error") {
       setError(
         "При отправке сообщения произошла ошибка. Пожалуйста, попробуйте ещё раз позже."
       );
     }
 
-    if (data.status == "mail_sent") {
+    if (data.status === "succes") {
       setIsSucces(true);
       setName("");
       setEmail("");
       setPhone("");
     }
-    */
-
-    // console.log(data);
-
-    const res = await fetch(
-      "/api/contact",
-      { method: "POST" }
-    );
-    const data = await res.json();
-    console.log(data);
   };
 
   return (
@@ -81,7 +66,6 @@ export const FeedbackModal = ({ onClose }: FeedbackModalProps) => {
             <Paragraph>{t.feedback.name}</Paragraph>
             <input
               className={styles.input}
-              name="your-name"
               type="text"
               value={name}
               onChange={(e) => {
@@ -94,7 +78,6 @@ export const FeedbackModal = ({ onClose }: FeedbackModalProps) => {
             <Paragraph>{t.feedback.email}</Paragraph>
             <input
               className={styles.input}
-              name="your-email"
               type="email"
               value={email}
               onChange={(e) => {
@@ -107,7 +90,6 @@ export const FeedbackModal = ({ onClose }: FeedbackModalProps) => {
             <Paragraph>{t.feedback.phone}</Paragraph>
             <input
               className={styles.input}
-              name="your-tel"
               type="tel"
               value={phone}
               onChange={(e) => {

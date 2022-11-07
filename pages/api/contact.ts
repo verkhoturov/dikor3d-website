@@ -1,25 +1,52 @@
 import nodemailer from "nodemailer";
 
 export default async (req, res) => {
-  let transporter = nodemailer.createTransport({
-    service: 'gmail',
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
     auth: {
-      user: "verkhoturov314@gmail.com",
-      pass: "178805vA",
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_APP_PASS, // ВАЖНО! Это спец пароль для приложения, а не обычный пароль для почты
     },
   });
 
-  if (req.method === "POST") {
-    let result = await transporter.sendMail({
-      from: '"Node js" <nodejs@example.com>',
-      to: "verkhoturov314@gmail.com",
-      subject: "Message from Node js",
-      text: "This message was sent from Node js server.",
-      html: "This <i>message</i> was sent from <strong>Node js</strong> server.",
-    });
+  const body = JSON.parse(req.body);
 
-    console.log("result ===", result);
-  } else {
-    res.status(200).json({ message: `Response from /api/submit.` });
+  if (req.method === "POST") {
+    let options;
+
+    if (body?.amount && body?.product) {
+      options = {
+        from: "Dikor <robot@admin.dikor3d.com>",
+        to: "verkhoturov314@gmail.com, dikor3dpanel@gmail.com",
+        subject: `Dikor заказ ${body.product}`,
+        html: `Заказ: ${body.product}, ${body.amount} шт <br/><br/>
+          Имя: ${body.name}<br/>
+          Телефон: ${body.phone}<br/>
+          Эл. почта: ${body.email}<br/>
+          <br/>
+          P.S. Письмо сформировано автоматически, отвечать на него не нужно.`,
+      };
+    } else {
+      options = {
+        from: "Dikor <robot@admin.dikor3d.com>",
+        to: "verkhoturov314@gmail.com",
+        subject: "Dikor заявка на обратный звонок",
+        html: `Заявка на обратный звонок. <br/><br/>
+          Имя: ${body.name}<br/>
+          Телефон: ${body.phone}<br/>
+          Эл. почта: ${body.email}<br/>
+          <br/>
+          P.S. Письмо сформировано автоматически, отвечать на него не нужно.`,
+      };
+    }
+
+    try {
+      await transporter.sendMail(options);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ status: "error", error });
+    }
+
+    res.status(200).json({ status: "succes" });
   }
 };

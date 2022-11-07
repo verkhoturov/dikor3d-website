@@ -37,28 +37,25 @@ export const OrderModal = ({ onClose, product }: OrderModalProps) => {
       return;
     }
 
-    const formData = new FormData(formRef.current);
-    const res = await fetch(
-      "https://admin.dikor3d.com/wp-json/contact-form-7/v1/contact-forms/144/feedback",
-      { method: "POST", body: formData }
-    );
+
+    const body = JSON.stringify({ name, email, phone, amount, product: product.name });
+    const res = await fetch("/api/contact", { method: "POST", body });
     const data = await res.json();
 
-    if (!data.status || data.error || data.status == "validation_failed") {
+    if (data.error || data.status == "error") {
       setError(
         "При отправке сообщения произошла ошибка. Пожалуйста, попробуйте ещё раз позже."
       );
     }
 
-    if (data.status == "mail_sent") {
+    if (data.status === "succes") {
       setIsSucces(true);
       setName("");
       setEmail("");
       setPhone("");
       setAmount(1);
     }
-
-    console.log(data);
+ 
   };
 
   return (
@@ -93,7 +90,6 @@ export const OrderModal = ({ onClose, product }: OrderModalProps) => {
             <Paragraph>{t.feedback.name}</Paragraph>
             <input
               className={styles.input}
-              name="your-name"
               type="text"
               value={name}
               onChange={(e) => {
@@ -106,7 +102,6 @@ export const OrderModal = ({ onClose, product }: OrderModalProps) => {
             <Paragraph>{t.feedback.email}</Paragraph>
             <input
               className={styles.input}
-              name="your-email"
               type="email"
               value={email}
               onChange={(e) => {
@@ -119,7 +114,6 @@ export const OrderModal = ({ onClose, product }: OrderModalProps) => {
             <Paragraph>{t.feedback.phone}</Paragraph>
             <input
               className={styles.input}
-              name="your-tel"
               type="tel"
               value={phone}
               onChange={(e) => {
@@ -131,7 +125,6 @@ export const OrderModal = ({ onClose, product }: OrderModalProps) => {
 
           <input
             className={styles.input}
-            name="amount"
             type="number"
             value={amount}
             style={{ display: "none" }}
@@ -139,7 +132,6 @@ export const OrderModal = ({ onClose, product }: OrderModalProps) => {
 
           <input
             className={styles.input}
-            name="product"
             type="text"
             value={product.name}
             style={{ display: "none" }}
