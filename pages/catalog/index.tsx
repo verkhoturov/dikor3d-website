@@ -37,5 +37,6 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: { catalogList },
+    revalidate: 30,
   };
 };
