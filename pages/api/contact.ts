@@ -2,13 +2,11 @@ import nodemailer from "nodemailer";
 
 export default async (req, res) => {
   let transporter = nodemailer.createTransport({
-    port: 465,
-    host: "smtp.gmail.com",
+    service: 'gmail',
     auth: {
       user: "verkhoturov314@gmail.com",
       pass: "178805vA",
     },
-    secure: true,
   });
 
   if (req.method === "POST") {
