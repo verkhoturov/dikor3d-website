@@ -7,8 +7,9 @@ import { Section } from "../../components/common";
 import { Product, Back } from "../../components/product";
 import { getCatalogList, getProduct } from "../../lib/api";
 import { getProductNameByLang } from "../../utils/getProductNameByLang";
+import { CatalogItem } from "../../lib/types";
 
-export default function Post({ product }) {
+export default function ProductPage({ product }: { product: CatalogItem }) {
   const router = useRouter();
 
   if (!router.isFallback && !product) {
@@ -16,16 +17,13 @@ export default function Post({ product }) {
   }
 
   const productName = getProductNameByLang(router.locale, product?.name);
+  const title = productName ? `Dikor | ${productName}` : "Dikor";
 
   return (
     <Page>
       <Head>
-        <title>Dikor | {productName}</title>
+        <title>{title}</title>
         <meta property="og:image" content={product?.imgLink} />
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
-        />
       </Head>
       <Section noPadding style={{ paddingTop: 20 }}>
         <Back />

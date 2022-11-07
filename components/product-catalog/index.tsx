@@ -25,7 +25,6 @@ const Item: React.FC<ItemProps> = ({ content, imgLink }) => {
     <div className={styles.item}>
       <Image
         className={styles.img}
-        loader={() => imgLink}
         src={imgLink}
         alt="Dikor catalog"
         width={386}

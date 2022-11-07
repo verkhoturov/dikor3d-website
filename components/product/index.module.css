@@ -58,6 +58,7 @@
   transition: 0.2s;
   margin-bottom: 20px;
   border: unset;
+  border-radius: 14px;
   min-width: 100px;
   cursor: pointer;
 }

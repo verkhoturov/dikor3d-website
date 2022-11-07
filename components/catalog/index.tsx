@@ -38,7 +38,6 @@ const Item: React.FC<CatalogItem> = ({
         >
           <Image
             className={styles.img}
-            // loader={() => imgLink}
             src={imgLink}
             alt={itemName}
             width={386}
@@ -50,7 +49,6 @@ const Item: React.FC<CatalogItem> = ({
           <div className={styles.additionalImgWrapper}>
             <Image
               className={styles.img}
-              // loader={() => additionalImgLink_1}
               src={additionalImgLink_1}
               alt={itemName}
               width={386}

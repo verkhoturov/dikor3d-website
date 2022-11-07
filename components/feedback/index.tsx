@@ -32,6 +32,8 @@ export const FeedbackModal = ({ onClose }: FeedbackModalProps) => {
       return;
     }
 
+    /*
+
     const formData = new FormData(formRef.current);
     const res = await fetch(
       "https://admin.dikor3d.com/wp-json/contact-form-7/v1/contact-forms/138/feedback",
@@ -51,7 +53,15 @@ export const FeedbackModal = ({ onClose }: FeedbackModalProps) => {
       setEmail("");
       setPhone("");
     }
+    */
 
+    // console.log(data);
+
+    const res = await fetch(
+      "/api/contact",
+      { method: "POST" }
+    );
+    const data = await res.json();
     console.log(data);
   };
 

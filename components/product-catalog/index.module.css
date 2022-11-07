@@ -108,6 +108,10 @@
     font-size: 12px;
     line-height: 14px;
   } 
+
+  .item:hover .content {
+    height: 300px;
+  }
 }
 
 @media (max-width: 1023px) {
