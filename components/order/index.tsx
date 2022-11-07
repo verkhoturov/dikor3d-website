@@ -149,7 +149,7 @@ export const OrderModal = ({ onClose, product }: OrderModalProps) => {
             {error && <Paragraph>{error}</Paragraph>}
           </div>
 
-          <Button type="submit">
+          <Button type="submit" isSharp>
             {t.feedback.button}
           </Button>
         </form>

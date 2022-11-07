@@ -111,7 +111,7 @@ export const FeedbackModal = ({ onClose }: FeedbackModalProps) => {
             {error && <Paragraph>{error}</Paragraph>}
           </div>
 
-          <Button type="submit">
+          <Button type="submit" isSharp>
             {t.feedback.button}
           </Button>
         </form>
