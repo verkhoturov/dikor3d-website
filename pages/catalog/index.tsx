@@ -1,8 +1,11 @@
 import Head from "next/head";
 import { GetStaticProps } from "next";
 import { useRouter } from "next/router";
-import { Delivery } from "../../components/delivery";
-import { Hero, Section } from "../../components/common";
+// import { Delivery } from "../../components/delivery";
+import {
+  // Hero,
+  Section,
+} from "../../components/common";
 import { Page } from "../../components/page";
 import { Catalog } from "../../components/catalog";
 import { getCatalogList } from "../../lib/api";
