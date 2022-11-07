@@ -88,7 +88,7 @@ export const Advantages = () => {
               className={styles.icon}
               style={{ backgroundImage: `url(${ecoImg.src})` }}
             ></i>
-            <Paragraph>{t.advantages.itemNocolor}</Paragraph>
+            <Paragraph>{t.advantages.itemEco}</Paragraph>
           </li>
         </ul>
         <div className={styles.btnWrapper}>

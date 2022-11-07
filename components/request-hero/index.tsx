@@ -21,7 +21,6 @@ export const RequestHero = () => {
     <div className={styles.wrapper}>
       <Hero
         title={t.requestHero.title}
-        subtitle={t.requestHero.subtitle}
         bgImg={requestImg.src}
         button={{ text: t.common.request, onClick }}
         isWhiteText

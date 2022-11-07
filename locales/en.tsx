@@ -109,6 +109,5 @@ export const en = {
   },
   requestHero: {
     title: "Free on-site visit of an inspector with samples and catalogues",
-    subtitle: "If the order is not confirmed, costs are charged - 300 lei",
   },
 };

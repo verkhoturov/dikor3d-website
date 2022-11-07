@@ -110,7 +110,5 @@ export const ro = {
   },
   requestHero: {
     title: "Lăsați o cerere și managerul nostru vă va contacta în scurt timp.",
-    subtitle:
-      "Vizita gratuită a unui inspector la fața locului cu mostre și cataloage În cazul în care comanda nu este confirmată se percep costurile - 300 lei",
   },
 };
