@@ -60,8 +60,6 @@ export const ProductCatalog = () => {
     setIsMobile(window.innerWidth < 1024);
   }, []);
 
-  console.log("isMobile", isMobile);
-
   return (
     <>
       <div className={styles.titleWapper}>
