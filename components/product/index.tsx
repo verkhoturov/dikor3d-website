@@ -1,11 +1,16 @@
 import React from "react";
+import ErrorPage from "next/error";
+import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./index.module.css";
 import { OrderModal } from "../order";
+import { Page } from "../page";
+import { Section } from "../common";
 import { CatalogItem, MultiLanguageContent } from "../../lib/types";
 import { useRouter } from "next/router";
 import { useLang } from "../../utils/useLang";
+import { getProductNameByLang } from "../../utils/getProductNameByLang";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
 
@@ -126,11 +131,39 @@ export const Product: React.FC<{
 export const Back = () => {
   const router = useRouter();
   const t = useLang(router.locale);
+  const parentCatalog = router.asPath.split("/")[1];
+  
   return (
-    <Link href="/catalog">
+    <Link href={`/${parentCatalog}`}>
       <a>
         <span className={styles.backBtn}>{t.common.back}</span>
       </a>
     </Link>
+  );
+};
+
+export const ProductPageContent = ({ product }: { product: CatalogItem }) => {
+  const router = useRouter();
+
+  if (!router.isFallback && !product) {
+    return <ErrorPage statusCode={404} />;
+  }
+
+  const productName = getProductNameByLang(router.locale, product?.name);
+  const title = productName ? `Dikor | ${productName}` : "Dikor";
+
+  return (
+    <Page>
+      <Head>
+        <title>{title}</title>
+        {product ? (
+          <meta property="og:image" content={product.imgLink} />
+        ) : null}
+      </Head>
+      <Section noPadding style={{ paddingTop: 20 }}>
+        <Back />
+        <Product product={product} isLoading={router.isFallback} />
+      </Section>
+    </Page>
   );
 };

@@ -8,12 +8,13 @@
   align-items: center;
   justify-content: space-between;    
   position: relative;
-  z-index: 10;
+  z-index: 100;
 }
 
 .logoWrapper {
   width: 90px;
   height: 35px;
+  margin-bottom: 8px;
 }
 
 .list {
@@ -25,11 +26,21 @@
   margin: 0 14px;
 }
 
+.item a {
+  padding: 2px 0;
+  border-bottom: 1px solid transparent;
+  transition: 0.2s;
+}
+
+.item a:hover {
+  border-bottom: 1px solid black;
+}
+
 .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-left: 100px;
+  margin-left: 50px;
 }
 
 .socAndLangWrapper {
@@ -39,7 +50,122 @@
   min-width: 150px;
 }
 
+.mobileMenuWrapper {
+  display: none;
+}
+
+.burgerWrapper {
+  position: relative;
+  height: 24px;
+  width: 40px;
+  padding: 0;
+  border: unset;
+  background: none;
+}
+
+.burgerLine {
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 0;
+  right: 0;
+  width: 40px;
+  height: 2px;
+  background-color: black;
+  opacity: 1;
+  transition: 0.2s;
+}
+
+.burgerWrapper::after,
+.burgerWrapper::before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 2px;
+  left: 0;
+  right: 0;
+  background-color: black;
+  transition: 0.2s;
+}
+
+.burgerWrapper::after {
+  top: 0;
+}
+
+.burgerWrapper::before {
+  bottom: 0;
+}
+
+.burgerWrapperOpen .burgerLine {
+  transform: rotate(-45deg) translateY(3px) translateX(-1px)
+}
+
+.burgerWrapperOpen.burgerWrapper::before {
+  transform: rotate(45deg) translateY(-7px) translateX(-5px);
+}
+
+.burgerWrapperOpen.burgerWrapper::after {
+  opacity: 0;
+}
+
+.mobileMenu {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: calc(100vh - 60px);
+  background-color: white;
+}
+
+.listLang {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.contactsWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.contactsWrapper a {
+  margin-right: 12px;
+  padding: 2px 0;
+  border-bottom: 1px solid transparent;
+  transition: 0.2s;
+}
+
+.contactsWrapper a:hover{
+  margin-right: 12px;
+  border-bottom: 1px solid black;
+}
+
+@media (max-width: 1023px) {
+  .nav {
+    margin-left: 0;
+  }
+  .socAndLangWrapper {
+    min-width: 100px;
+  }
+  .contactsWrapper a {
+    font-size: 14px;
+    margin-right: 10px;
+  }
+}
+
 @media (max-width: 767px) {
+
+  .logoWrapper {
+    margin-bottom: 0;
+  }
+
+  .desktopMenuWrapper {
+    display: none;
+  }
+
+  .mobileMenuWrapper {
+    display: block;
+  }
 
   .logoWrapper {
     width: 68px;
@@ -48,16 +174,41 @@
 
   .header {
     padding: 0 12px;
+    height: 60px;
   }
 
   .nav {
     margin-left: 0;
-  }
-  .socAndLangWrapper {
-    min-width: auto;
+    justify-content: center;
+    padding: 10px 0;
   }
 
-  .socAndLangWrapper > a {
+  .socAndLangWrapper {
     display: none;
+  }
+
+  .list {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .item {
+    padding: 10px 0;
+  }
+
+  .contactsWrapper {
+    margin-top: 7px;
+  }
+
+  .contactsWrapper a {
+    font-size: 12px;
+    margin-right: 8px;
+  }
+}
+
+@media (max-width: 374px) {
+  .contactsWrapper {
+    flex-direction: column;
+    margin-top: 0;
   }
 }

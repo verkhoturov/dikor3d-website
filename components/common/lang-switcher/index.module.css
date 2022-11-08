@@ -39,6 +39,12 @@
   transform: rotate(270deg);
 }
 
+@media (max-width: 1023px) {
+  .wrapperLang {
+    margin-right: 14px;
+  }
+}
+
 @media (max-width: 767px) {
   .wrapperLang {
     margin-right: 0;

@@ -6,6 +6,7 @@ import classnames from "classnames";
 import { CatalogItem } from "../../lib/types";
 import { useLang } from "../../utils/useLang";
 import { getProductNameByLang } from "../../utils/getProductNameByLang";
+import { getPathByCategory } from "../../utils/getPathByCategory";
 
 import styles from "./index.module.css";
 
@@ -20,16 +21,19 @@ const Item: React.FC<CatalogItem> = ({
   imgLink,
   price,
   additionalImgLink_1,
+  category,
 }) => {
   const router = useRouter();
   const locale = router.locale;
   const t = useLang(locale);
 
   const itemName = getProductNameByLang(locale, name);
+  const parentCatalog = getPathByCategory(category);
+  const href = `/${parentCatalog}/${slug}`;
 
   if (!slug) return <div className={styles.item}></div>;
   return (
-    <Link href={`/catalog/${slug}`}>
+    <Link href={href}>
       <a className={styles.item}>
         <div
           className={classnames(styles.mainImgWrapper, {
@@ -74,27 +78,17 @@ export const Catalog: React.FC<CatalogProps> = ({ list, isLoading }) => {
   if (isLoading)
     return (
       <div className={styles.wrapper}>
-        <Item
-          id={0}
-          slug=""
-          name={{ en: "", rus: "", rom: "" }}
-          imgLink=""
-          price=""
-        />
-        <Item
-          id={0}
-          slug=""
-          name={{ en: "", rus: "", rom: "" }}
-          imgLink=""
-          price=""
-        />
-        <Item
-          id={0}
-          slug=""
-          name={{ en: "", rus: "", rom: "" }}
-          imgLink=""
-          price=""
-        />
+        {[1, 2, 3].map((item) => (
+          <Item
+            key={item}
+            id={item}
+            slug=""
+            name={{ en: "", rus: "", rom: "" }}
+            imgLink=""
+            price=""
+            category={1}
+          />
+        ))}
       </div>
     );
 

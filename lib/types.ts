@@ -1,3 +1,11 @@
+export enum Category {
+  CLASSIC = 6,
+  PLATINUM = 5,
+  SHINE = 4,
+  PREMIUM = 3,
+  uncategorized = 1,
+}
+
 export interface MultiLanguageContent {
   rus: string;
   rom: string;
@@ -13,4 +21,5 @@ export interface CatalogItem {
   additionalImgLink_1?: string;
   additionalImgLink_2?: string;
   price: string;
+  category: Category;
 }
