@@ -16,14 +16,18 @@ interface ItemProps {
   content: { main: string | React.ReactNode; desc: string | React.ReactNode };
   imgLink: string;
   href: string;
+  isMobile: boolean;
 }
 
-const Item: React.FC<ItemProps> = ({ content, imgLink, href }) => {
+const Item: React.FC<ItemProps> = ({ content, imgLink, href, isMobile }) => {
   const router = useRouter();
   const t = useLang(router.locale);
 
   return (
-    <div className={styles.item}>
+    <div
+      className={styles.item}
+      onClick={() => (isMobile ? router.push(href) : {})}
+    >
       <Image
         className={styles.img}
         src={imgLink}
@@ -50,6 +54,13 @@ const Item: React.FC<ItemProps> = ({ content, imgLink, href }) => {
 export const ProductCatalog = () => {
   const router = useRouter();
   const t = useLang(router.locale);
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsMobile(window.innerWidth < 1024);
+  }, []);
+
+  console.log("isMobile", isMobile);
 
   return (
     <>
@@ -62,16 +73,19 @@ export const ProductCatalog = () => {
           imgLink={itemImg_1.src}
           content={t.productCatalog.card1}
           href="/catalog-premium"
+          isMobile={isMobile}
         />
         <Item
           imgLink={itemImg_2.src}
           content={t.productCatalog.card2}
           href="/catalog-shine"
+          isMobile={isMobile}
         />
         <Item
           imgLink={itemImg_3.src}
           content={t.productCatalog.card3}
           href="/catalog-platinum"
+          isMobile={isMobile}
         />
       </div>
     </>

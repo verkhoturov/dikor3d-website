@@ -17,7 +17,7 @@ export default async (req, res) => {
     if (body?.amount && body?.product) {
       options = {
         from: "Dikor <robot@admin.dikor3d.com>",
-        to: "verkhoturov314@gmail.com, dikor3dpanel@gmail.com",
+        to: "verkhoturov314@gmail.com, dikorpanel3d@gmail.com",
         subject: `Dikor заказ ${body.product}`,
         html: `Заказ: ${body.product}, ${body.amount} шт <br/><br/>
           Имя: ${body.name}<br/>

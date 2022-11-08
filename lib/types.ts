@@ -20,6 +20,7 @@ export interface CatalogItem {
   imgLink: string;
   additionalImgLink_1?: string;
   additionalImgLink_2?: string;
-  price: string;
+  priceMDL: string;
+  priceEUR: string;
   category: Category;
 }

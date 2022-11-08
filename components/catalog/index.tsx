@@ -7,6 +7,7 @@ import { CatalogItem } from "../../lib/types";
 import { useLang } from "../../utils/useLang";
 import { getProductNameByLang } from "../../utils/getProductNameByLang";
 import { getPathByCategory } from "../../utils/getPathByCategory";
+import { getPriceByLang } from "../../utils/getPriceByLang";
 
 import styles from "./index.module.css";
 
@@ -19,7 +20,8 @@ const Item: React.FC<CatalogItem> = ({
   slug,
   name,
   imgLink,
-  price,
+  priceMDL,
+  priceEUR,
   additionalImgLink_1,
   category,
 }) => {
@@ -29,6 +31,7 @@ const Item: React.FC<CatalogItem> = ({
 
   const itemName = getProductNameByLang(locale, name);
   const parentCatalog = getPathByCategory(category);
+  const price = getPriceByLang(priceMDL, priceEUR, locale);
   const href = `/${parentCatalog}/${slug}`;
 
   if (!slug) return <div className={styles.item}></div>;
@@ -65,7 +68,7 @@ const Item: React.FC<CatalogItem> = ({
           <div>
             <p className={styles.name}>{itemName}</p>
             <p className={styles.price}>
-              {price} р. <span>/ {t.common.amount} </span>
+              {price} <span>/ {t.common.amount} </span>
             </p>
           </div>
         </div>
@@ -85,7 +88,8 @@ export const Catalog: React.FC<CatalogProps> = ({ list, isLoading }) => {
             slug=""
             name={{ en: "", rus: "", rom: "" }}
             imgLink=""
-            price=""
+            priceMDL=""
+            priceEUR=""
             category={1}
           />
         ))}

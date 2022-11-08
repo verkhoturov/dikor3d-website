@@ -25,7 +25,8 @@ export const getCatalogList = async (
     additionalImgLink_1: acf.additional_image_1
       ? acf.additional_image_1.sizes.large
       : null,
-    price: acf.price,
+    priceMDL: acf.price,
+    priceEUR: acf.price_eur,
     category,
   }));
 
@@ -66,7 +67,8 @@ export const getProduct = async (slug: string): Promise<CatalogItem> => {
     imgLink: acf.image.sizes.large,
     additionalImgLink_1,
     additionalImgLink_2,
-    price: acf.price,
+    priceMDL: acf.price,
+    priceEUR: acf.price_eur,
     category: categories[0],
   };
 

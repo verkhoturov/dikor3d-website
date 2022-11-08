@@ -11,6 +11,7 @@ import { CatalogItem, MultiLanguageContent } from "../../lib/types";
 import { useRouter } from "next/router";
 import { useLang } from "../../utils/useLang";
 import { getProductNameByLang } from "../../utils/getProductNameByLang";
+import { getPriceByLang } from "../../utils/getPriceByLang";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
 
@@ -48,12 +49,14 @@ export const Product: React.FC<{
   const {
     name,
     content,
-    price,
+    priceMDL,
+    priceEUR,
     imgLink,
     additionalImgLink_1,
     additionalImgLink_2,
   } = product;
   const productContent = getContentByLang(locale, name, content);
+  const price = getPriceByLang(priceMDL, priceEUR, locale);
 
   return (
     <div className={styles.wrapper}>
@@ -106,7 +109,7 @@ export const Product: React.FC<{
       <div className={styles.descWrapper}>
         <h2 className={styles.name}>{productContent.name}</h2>
         <p className={styles.price}>
-          {price} р. <span>/ {t.common.amount} </span>
+          {price} <span>/ {t.common.amount} </span>
         </p>
 
         <button className={styles.btn} onClick={() => setShowModal(true)}>
@@ -132,7 +135,7 @@ export const Back = () => {
   const router = useRouter();
   const t = useLang(router.locale);
   const parentCatalog = router.asPath.split("/")[1];
-  
+
   return (
     <Link href={`/${parentCatalog}`}>
       <a>
