@@ -89,6 +89,7 @@
 
 .burgerWrapper::after {
   top: 0;
+  transition: unset;
 }
 
 .burgerWrapper::before {
@@ -145,7 +146,8 @@
     margin-left: 0;
   }
   .socAndLangWrapper {
-    min-width: 100px;
+    min-width: auto;
+    padding-top: 5px;
   }
   .contactsWrapper a {
     font-size: 14px;
@@ -154,6 +156,10 @@
 }
 
 @media (max-width: 767px) {
+
+  .hideAtMob {
+    display: none;
+  }
 
   .logoWrapper {
     margin-bottom: 0;
@@ -183,7 +189,7 @@
     padding: 10px 0;
   }
 
-  .socAndLangWrapper {
+  .socAndLangWrapper > a {
     display: none;
   }
 
@@ -209,6 +215,8 @@
 @media (max-width: 374px) {
   .contactsWrapper {
     flex-direction: column;
-    margin-top: 0;
+  }
+  .contactsWrapper a {
+    margin-right: 0;
   }
 }

@@ -73,10 +73,16 @@ export const Menu: React.FC = () => {
 
       <div className={styles.contactsWrapper}>
         <a href="tel:+37376740995">{`+ 373 (767) 409 95`}</a>
-        <a href="tel:+40745472526">{`+40 (745) 472 526`}</a>
+        <a
+          href="tel:+40745472526"
+          className={styles.hideAtMob}
+        >{`+40 (745) 472 526`}</a>
       </div>
 
-      <div className={styles.socAndLangWrapper}>
+      <div
+        className={styles.socAndLangWrapper}
+        onClick={() => setOpenMobileMenu(false)}
+      >
         <LangSwitcher />
 
         <Link href="/">
