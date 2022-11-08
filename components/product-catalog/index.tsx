@@ -15,9 +15,10 @@ import styles from "./index.module.css";
 interface ItemProps {
   content: { main: string | React.ReactNode; desc: string | React.ReactNode };
   imgLink: string;
+  href: string;
 }
 
-const Item: React.FC<ItemProps> = ({ content, imgLink }) => {
+const Item: React.FC<ItemProps> = ({ content, imgLink, href }) => {
   const router = useRouter();
   const t = useLang(router.locale);
 
@@ -38,7 +39,7 @@ const Item: React.FC<ItemProps> = ({ content, imgLink }) => {
           <span className={styles.desc}>{content.desc}</span>
         </Paragraph>
 
-        <Link href={`/catalog`}>
+        <Link href={href}>
           <a>{t.productCatalog.link}</a>
         </Link>
       </div>
@@ -57,9 +58,21 @@ export const ProductCatalog = () => {
       </div>
 
       <div className={styles.inner}>
-        <Item imgLink={itemImg_1.src} content={t.productCatalog.card1} />
-        <Item imgLink={itemImg_2.src} content={t.productCatalog.card2} />
-        <Item imgLink={itemImg_3.src} content={t.productCatalog.card3} />
+        <Item
+          imgLink={itemImg_1.src}
+          content={t.productCatalog.card1}
+          href="/catalog-premium"
+        />
+        <Item
+          imgLink={itemImg_2.src}
+          content={t.productCatalog.card2}
+          href="/catalog-shine"
+        />
+        <Item
+          imgLink={itemImg_3.src}
+          content={t.productCatalog.card3}
+          href="/catalog-platinum"
+        />
       </div>
     </>
   );

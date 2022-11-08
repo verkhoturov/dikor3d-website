@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import Image from "next/image";
 import classnames from "classnames";
 import { LangSwitcher } from "../lang-switcher";
@@ -49,9 +48,6 @@ const List = () => (
 );
 
 export const Menu: React.FC = () => {
-  const router = useRouter();
-  const pathname = router.asPath;
-
   const [openMobileMenu, setOpenMobileMenu] = React.useState(false);
 
   return (
@@ -103,24 +99,6 @@ export const Menu: React.FC = () => {
         {openMobileMenu && (
           <div className={styles.mobileMenu}>
             <List />
-
-            <div className={styles.listLang}>
-              <Link href={`/${pathname}`} locale="en">
-                <a onClick={() => setOpenMobileMenu(false)}>
-                  <span className={styles.lang}>Eng</span>
-                </a>
-              </Link>
-              <Link href={`/${pathname}`} locale="ru">
-                <a onClick={() => setOpenMobileMenu(false)}>
-                  <span className={styles.lang}>Rus</span>
-                </a>
-              </Link>
-              <Link href={`/${pathname}`} locale="ro">
-                <a onClick={() => setOpenMobileMenu(false)}>
-                  <span className={styles.lang}>Rom</span>
-                </a>
-              </Link>
-            </div>
           </div>
         )}
       </div>
