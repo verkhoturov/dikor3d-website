@@ -22,7 +22,20 @@
   right: 0;
   top: 0;
   bottom: 0;
+  height: 100%;
   width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bgImgInner {
+  min-width: 1198px;
+}
+
+.bgImg > span {
+  height: 100% !important;
 }
 
 .inner {
@@ -58,8 +71,30 @@
     padding: 30px 16px;
   }
 
-
   .wrapperBg {
     min-height: 420px;
+  }
+  .bgImgInner {
+    min-width: 1024px;
+  }
+}
+
+@media (max-width: 767px) {
+  .wrapperBg {
+    min-height: 360px;
+  }
+
+  .bgImgInner {
+    min-width: 768px;
+  }
+}
+
+@media (max-width: 424px) {
+  .wrapperBg {
+    min-height: 290px;
+  }
+
+  .bgImgInner {
+    min-width: 650px;
   }
 }

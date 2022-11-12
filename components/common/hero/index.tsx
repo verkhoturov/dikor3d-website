@@ -43,7 +43,15 @@ export const Hero: React.FC<{
     onClick: () => void;
   };
   height?: number;
-}> = ({ title, subtitle, bgImg, height = 560, isWhiteText, tag = "header", button }) => {
+}> = ({
+  title,
+  subtitle,
+  bgImg,
+  height = 560,
+  isWhiteText,
+  tag = "header",
+  button,
+}) => {
   return (
     <Container
       className={classnames(styles.wrapper, {
@@ -53,13 +61,14 @@ export const Hero: React.FC<{
       tagName={tag}
     >
       <div className={styles.bgImg}>
-        <Image
-          src={bgImg}
-          alt="Dikor catalog"
-          width={1198}
-          height={height}
-          layout="responsive"
-        />
+        <div className={styles.bgImgInner}>
+          <Image
+            src={bgImg}
+            width={1198}
+            height={height}
+            // layout="responsive"
+          />
+        </div>
       </div>
       <div className={styles.inner}>
         <H1>{title}</H1>
