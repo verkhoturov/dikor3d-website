@@ -17,9 +17,7 @@ export interface CatalogItem {
   slug: string;
   name: MultiLanguageContent;
   content?: MultiLanguageContent;
-  imgLink: string;
-  additionalImgLink_1?: string;
-  additionalImgLink_2?: string;
+  galleryImgUrls: string[];
   priceMDL: string;
   priceEUR: string;
   category: Category;

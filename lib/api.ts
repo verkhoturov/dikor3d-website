@@ -21,10 +21,7 @@ export const getCatalogList = async (
       rom: acf.title_rom,
       en: title.rendered,
     },
-    imgLink: acf.image.sizes.large,
-    additionalImgLink_1: acf.additional_image_1
-      ? acf.additional_image_1.sizes.large
-      : null,
+    galleryImgUrls: acf.gallery.map(({ sizes }) => sizes.large),
     priceMDL: acf.price,
     priceEUR: acf.price_eur,
     category,
@@ -44,13 +41,6 @@ export const getProduct = async (slug: string): Promise<CatalogItem> => {
 
   const { id, acf, content, title, categories } = data[0];
 
-  const additionalImgLink_1 = acf.additional_image_1
-    ? acf.additional_image_1.sizes.large
-    : "";
-  const additionalImgLink_2 = acf.additional_image_2
-    ? acf.additional_image_2.sizes.large
-    : "";
-
   const product = {
     id,
     slug,
@@ -64,9 +54,7 @@ export const getProduct = async (slug: string): Promise<CatalogItem> => {
       rom: acf.title_rom,
       en: title.rendered,
     },
-    imgLink: acf.image.sizes.large,
-    additionalImgLink_1,
-    additionalImgLink_2,
+    galleryImgUrls: acf.gallery.map(({ sizes }) => sizes.large),
     priceMDL: acf.price,
     priceEUR: acf.price_eur,
     category: categories[0],

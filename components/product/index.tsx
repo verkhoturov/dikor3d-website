@@ -46,15 +46,7 @@ export const Product: React.FC<{
       </div>
     );
 
-  const {
-    name,
-    content,
-    priceMDL,
-    priceEUR,
-    imgLink,
-    additionalImgLink_1,
-    additionalImgLink_2,
-  } = product;
+  const { name, content, priceMDL, priceEUR, galleryImgUrls } = product;
   const productContent = getContentByLang(locale, name, content);
   const price = getPriceByLang(priceMDL, priceEUR, locale);
 
@@ -70,40 +62,18 @@ export const Product: React.FC<{
           pagination={{ clickable: true }}
           loop
         >
-          <SwiperSlide>
-            <Image
-              className={styles.img}
-              src={imgLink}
-              alt={productContent.name}
-              width={500}
-              height={600}
-              layout="responsive"
-            />
-          </SwiperSlide>
-          {additionalImgLink_1 && (
-            <SwiperSlide>
+          {galleryImgUrls.map((imgUrl, i) => (
+            <SwiperSlide key={i}>
               <Image
                 className={styles.img}
-                src={additionalImgLink_1}
+                src={imgUrl}
                 alt={productContent.name}
                 width={500}
                 height={600}
                 layout="responsive"
               />
             </SwiperSlide>
-          )}
-          {additionalImgLink_2 && (
-            <SwiperSlide>
-              <Image
-                className={styles.img}
-                src={additionalImgLink_2}
-                alt={productContent.name}
-                width={500}
-                height={600}
-                layout="responsive"
-              />
-            </SwiperSlide>
-          )}
+          ))}
         </Swiper>
       </div>
       <div className={styles.descWrapper}>
@@ -160,7 +130,7 @@ export const ProductPageContent = ({ product }: { product: CatalogItem }) => {
       <Head>
         <title>{title}</title>
         {product ? (
-          <meta property="og:image" content={product.imgLink} />
+          <meta property="og:image" content={product.galleryImgUrls[0]} />
         ) : null}
       </Head>
       <Section noPadding style={{ paddingTop: 20 }}>

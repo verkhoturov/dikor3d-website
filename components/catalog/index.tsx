@@ -19,11 +19,10 @@ interface CatalogProps {
 const Item: React.FC<CatalogItem> = ({
   slug,
   name,
-  imgLink,
   priceMDL,
   priceEUR,
-  additionalImgLink_1,
   category,
+  galleryImgUrls,
 }) => {
   const router = useRouter();
   const locale = router.locale;
@@ -33,6 +32,8 @@ const Item: React.FC<CatalogItem> = ({
   const parentCatalog = getPathByCategory(category);
   const price = getPriceByLang(priceMDL, priceEUR, locale);
   const href = `/${parentCatalog}/${slug}`;
+  const primaryImg = galleryImgUrls[0];
+  const secondaryImg = galleryImgUrls[1];
 
   if (!slug) return <div className={styles.item}></div>;
   return (
@@ -40,23 +41,23 @@ const Item: React.FC<CatalogItem> = ({
       <a className={styles.item}>
         <div
           className={classnames(styles.mainImgWrapper, {
-            [styles.mainImgWrapperHover]: !!additionalImgLink_1,
+            [styles.mainImgWrapperHover]: !!secondaryImg,
           })}
         >
           <Image
             className={styles.img}
-            src={imgLink}
+            src={primaryImg}
             alt={itemName}
             width={386}
             height={390}
             layout="responsive"
           />
         </div>
-        {additionalImgLink_1 && (
+        {secondaryImg && (
           <div className={styles.additionalImgWrapper}>
             <Image
               className={styles.img}
-              src={additionalImgLink_1}
+              src={secondaryImg}
               alt={itemName}
               width={386}
               height={390}
@@ -87,7 +88,7 @@ export const Catalog: React.FC<CatalogProps> = ({ list, isLoading }) => {
             id={item}
             slug=""
             name={{ en: "", rus: "", rom: "" }}
-            imgLink=""
+            galleryImgUrls={[]}
             priceMDL=""
             priceEUR=""
             category={1}
