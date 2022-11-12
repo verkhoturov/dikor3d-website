@@ -25,6 +25,7 @@ export const RequestHero = () => {
         button={{ text: t.common.request, onClick }}
         isWhiteText
         tag="div"
+        height={441}
       />
       {showModal && <FeedbackModal onClose={() => setShowModal(false)} />}
     </div>

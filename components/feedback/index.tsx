@@ -27,8 +27,8 @@ export const FeedbackModal = ({ onClose }: FeedbackModalProps) => {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    if (!name || !email || !phone) {
-      setError("Заполните все поля");
+    if (!phone) {
+      setError(t.feedback.inputEmptyError);
       return;
     }
 
@@ -37,9 +37,7 @@ export const FeedbackModal = ({ onClose }: FeedbackModalProps) => {
     const data = await res.json();
 
     if (data.error || data.status == "error") {
-      setError(
-        "При отправке сообщения произошла ошибка. Пожалуйста, попробуйте ещё раз позже."
-      );
+      setError(t.feedback.sendError);
     }
 
     if (data.status === "succes") {
@@ -57,8 +55,7 @@ export const FeedbackModal = ({ onClose }: FeedbackModalProps) => {
           <i className={styles.icon}>
             <EmailIcon />
           </i>
-          <Paragraph>Заявка успешно отправлена!</Paragraph>
-          <Paragraph>В ближайшее внемя с вами свяжется менеджер</Paragraph>
+          <Paragraph>{t.feedback.success}</Paragraph>
         </div>
       ) : (
         <form ref={formRef} onSubmit={onSubmit} className={styles.form}>

@@ -33,6 +33,16 @@ export const ro = {
     email: "E-mail",
     phone: "Telefon",
     button: "Lăsați o cerere",
+    inputEmptyError: "Completați toate câmpurile",
+    sendError:
+      "Când trimiteți, a apărut o eroare. Vă rugăm să încercați din nou mai târziu.",
+    success: (
+      <>
+        Vă mulțumim pentru cererea dumneavoastră !
+        <br />
+        Așteptați apelul menegerului in timpul apropiat
+      </>
+    ),
   },
   advantages: {
     title: (

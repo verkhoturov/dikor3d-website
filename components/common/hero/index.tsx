@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import styles from "./index.module.css";
 import classnames from "classnames";
 import { H1 } from "../index";
@@ -8,7 +9,7 @@ interface ContainerProps {
   children: React.ReactNode;
   tagName?: "header" | "section" | "div";
   className: string;
-  style: React.CSSProperties;
+  style?: React.CSSProperties;
 }
 
 const Container = ({ children, tagName, className, style }: ContainerProps) => {
@@ -41,16 +42,25 @@ export const Hero: React.FC<{
     text: string;
     onClick: () => void;
   };
-}> = ({ title, subtitle, bgImg, isWhiteText, tag = "header", button }) => {
+  height?: number;
+}> = ({ title, subtitle, bgImg, height = 560, isWhiteText, tag = "header", button }) => {
   return (
     <Container
       className={classnames(styles.wrapper, {
         [styles.wrapperBg]: !!bgImg,
         [styles.wrapperWhiteText]: isWhiteText,
       })}
-      style={bgImg ? { backgroundImage: `url(${bgImg})` } : {}}
       tagName={tag}
     >
+      <div className={styles.bgImg}>
+        <Image
+          src={bgImg}
+          alt="Dikor catalog"
+          width={1198}
+          height={height}
+          layout="responsive"
+        />
+      </div>
       <div className={styles.inner}>
         <H1>{title}</H1>
         {subtitle && <p className={styles.subtitle}>{subtitle}</p>}

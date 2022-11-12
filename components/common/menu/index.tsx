@@ -7,7 +7,7 @@ import { LangSwitcher } from "../lang-switcher";
 import styles from "./index.module.css";
 
 import logoImg from "./img/dikor.png";
-import instaImg from "./img/instagram.png";
+import { InstagramIcon } from "./img/instagram-icon";
 
 const Burger = ({ isOpen, onClick }) => (
   <button
@@ -85,13 +85,9 @@ export const Menu: React.FC = () => {
       >
         <LangSwitcher />
 
-        <Link href="/">
+        <Link href="https://www.instagram.com/dima_di_kor/">
           <a>
-            <Image
-              className={styles.socLogo}
-              src={instaImg}
-              alt="Dikor instagram"
-            />
+            <InstagramIcon />
           </a>
         </Link>
       </div>

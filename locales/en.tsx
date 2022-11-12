@@ -33,6 +33,15 @@ export const en = {
     email: "Email",
     phone: "Telephone",
     button: "Leave a request",
+    inputEmptyError: "Fill the form",
+    sendError: "Error. Please try again later.",
+    success: (
+      <>
+        Thank you for your request!
+        <br />
+        Wait for the manager's call in the near future
+      </>
+    ),
   },
   advantages: {
     title: (

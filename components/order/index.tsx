@@ -33,19 +33,22 @@ export const OrderModal = ({ onClose, product }: OrderModalProps) => {
     e.preventDefault();
 
     if (!name || !email || !phone) {
-      setError("Заполните все поля");
+      setError(t.feedback.inputEmptyError);
       return;
     }
 
-
-    const body = JSON.stringify({ name, email, phone, amount, product: product.name });
+    const body = JSON.stringify({
+      name,
+      email,
+      phone,
+      amount,
+      product: product.name,
+    });
     const res = await fetch("/api/contact", { method: "POST", body });
     const data = await res.json();
 
     if (data.error || data.status == "error") {
-      setError(
-        "При отправке сообщения произошла ошибка. Пожалуйста, попробуйте ещё раз позже."
-      );
+      setError(t.feedback.sendError);
     }
 
     if (data.status === "succes") {
@@ -55,7 +58,6 @@ export const OrderModal = ({ onClose, product }: OrderModalProps) => {
       setPhone("");
       setAmount(1);
     }
- 
   };
 
   return (
@@ -65,8 +67,7 @@ export const OrderModal = ({ onClose, product }: OrderModalProps) => {
           <i className={styles.icon}>
             <EmailIcon />
           </i>
-          <Paragraph>Заявка успешно отправлена!</Paragraph>
-          <Paragraph>В ближайшее внемя с вами свяжется менеджер</Paragraph>
+          <Paragraph>{t.feedback.success}</Paragraph>
         </div>
       ) : (
         <form ref={formRef} onSubmit={onSubmit} className={styles.form}>
