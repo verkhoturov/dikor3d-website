@@ -22,6 +22,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const catalogList = await getCatalogList(Category.CLASSIC);
 
+  console.log("catalogList", catalogList.length)
+
   return {
     paths: catalogList.map(({ slug }) => `/catalog-classic/${slug}`) || [],
     fallback: true,

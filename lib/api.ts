@@ -5,7 +5,9 @@ const API_URL = `${process.env.WORDPRESS_URL}/wp-json/wp/v2`;
 export const getCatalogList = async (
   category: Category
 ): Promise<CatalogItem[]> => {
-  const res = await fetch(`${API_URL}/posts?categories=${category}`);
+  const res = await fetch(
+    `${API_URL}/posts?categories=${category}&per_page=100`
+  );
   const data = await res.json();
 
   if (data.errors) {
@@ -35,6 +37,11 @@ export const getProduct = async (slug: string): Promise<CatalogItem> => {
   const data = await res.json();
 
   if (data.errors) {
+    console.error(data.errors);
+    throw new Error("Failed to fetch product data");
+  }
+
+  if (!data.length) {
     console.error(data.errors);
     throw new Error("Failed to fetch product data");
   }
