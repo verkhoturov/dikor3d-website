@@ -32,6 +32,7 @@
 
 .bgImgInner {
   min-width: 1198px;
+  height: 100%;
 }
 
 .bgImg > span {
@@ -39,7 +40,7 @@
 }
 
 .inner {
-  max-width: 700px;
+  max-width: 600px;
   text-align: center;
   position: relative;
   z-index: 1;

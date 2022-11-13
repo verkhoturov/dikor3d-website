@@ -66,7 +66,6 @@ export const Hero: React.FC<{
             src={bgImg}
             width={1198}
             height={height}
-            // layout="responsive"
           />
         </div>
       </div>

@@ -6,9 +6,9 @@ import { H2, Paragraph } from "../common";
 import { useRouter } from "next/router";
 import { useLang } from "../../utils/useLang";
 
-import itemImg_1 from "./img/item-1.png";
-import itemImg_3 from "./img/item-2.png";
-import itemImg_2 from "./img/item-3.png";
+import itemImg_1 from "./img/item-1.jpg";
+import itemImg_3 from "./img/item-2.jpg";
+import itemImg_2 from "./img/item-3.jpg";
 
 import styles from "./index.module.css";
 

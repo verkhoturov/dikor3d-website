@@ -22,3 +22,21 @@ export interface CatalogItem {
   priceEUR: string;
   category: Category;
 }
+
+export interface MainPageContent {
+  headerSlider: {
+    slides: {
+      title: {
+        ru: string;
+        en: string;
+        rom: string;
+      };
+      subtitle: {
+        ru: string;
+        en: string;
+        rom: string;
+      };
+      imgUrl: string;
+    }[];
+  };
+}

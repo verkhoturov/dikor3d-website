@@ -1,4 +1,4 @@
-import { CatalogItem, Category } from "./types";
+import { CatalogItem, Category, MainPageContent } from "./types";
 
 const API_URL = `${process.env.WORDPRESS_URL}/wp-json/wp/v2`;
 
@@ -68,4 +68,34 @@ export const getProduct = async (slug: string): Promise<CatalogItem> => {
   };
 
   return product;
+};
+
+export const getMainPageContent = async (): Promise<MainPageContent> => {
+  const res = await fetch(`${API_URL}/pages?slug=main`);
+  const data = await res.json();
+
+  if (data.errors || !data.length) {
+    console.error(data.errors);
+    throw new Error("Failed to fetch main page content");
+  }
+
+  const pageContent: MainPageContent = {
+    headerSlider: {
+      slides: data[0].acf.content.map(({ slide }) => ({
+        title: {
+          ru: slide.title_ru,
+          en: slide.title_en,
+          rom: slide.title_rom,
+        },
+        subtitle: {
+          ru: slide.subtitle_ru,
+          en: slide.subtitle_en,
+          rom: slide.subtitle_rom,
+        },
+        imgUrl: slide.image.url,
+      })),
+    },
+  };
+
+  return pageContent;
 };

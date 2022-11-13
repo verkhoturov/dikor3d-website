@@ -5,7 +5,7 @@ import { FeedbackModal } from "../feedback";
 import { useRouter } from "next/router";
 import { useLang } from "../../utils/useLang";
 
-import requestImg from "./img/request.png";
+import requestImg from "./img/request.jpg";
 
 import styles from "./index.module.css";
 
