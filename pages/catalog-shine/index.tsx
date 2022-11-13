@@ -19,6 +19,10 @@ export default function CatalogShinePage({ catalogList }: CatalogPageProps) {
     <Page>
       <Head>
         <title>Dikor shine catalog</title>
+        <meta
+          name="description"
+          content="КУПИТЬ 3D ПАНЕЛИ С ДОСТАВКОЙ ПО ЕВРОПЕ. 3D панели с готовым покрытием от производителя Dikor. Заказать 3D панели с доставкой по  всей Европе:  ☎️ +373 (76) 740995"
+        ></meta>
       </Head>
       <Section isGrayBg>
         <Catalog list={catalogList} isLoading={isLoading} />

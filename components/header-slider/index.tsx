@@ -67,6 +67,7 @@ export const HeaderSlider = ({ slides }: HeaderSliderProps) => {
                 title={getContentByLang(locale, slide.title)}
                 subtitle={getContentByLang(locale, slide.subtitle)}
                 bgImg={slide.imgUrl}
+                height={890}
                 tag="div"
                 button={{ text: t.mainHero.button, onClick }}
                 isWhiteText
