@@ -1,0 +1,5 @@
+User-agent: *
+User-agent: GoogleBot
+User-agent: Yandex
+
+Host: https://www.dikor3d.com/
