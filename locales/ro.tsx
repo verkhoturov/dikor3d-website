@@ -66,8 +66,8 @@ export const ro = {
     card1: {
       main: (
         <>
-          <strong>Colecția Premium</strong> este formată din panouri de
-          gips-carton 3D cu un strat decorativ unic de vinil.
+          <strong>Colecția Premium</strong> este formată din panouri de gips 3D
+          cu un strat decorativ unic de vinil.
         </>
       ),
       desc: "Acoperirile din vinil creează un efect vizual care nu poate fi obținut cu niciun alt tip de vopsea.",
