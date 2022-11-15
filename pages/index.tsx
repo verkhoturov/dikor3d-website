@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { GetStaticProps } from "next";
 import { getMainPageContent } from "../lib/api";
 import { MainPageContent } from "../lib/types";
@@ -11,21 +10,22 @@ import { ProductCatalog } from "../components/product-catalog";
 import { OurProduction } from "../components/our-production";
 import { Conditions } from "../components/conditions";
 import { RequestHero } from "../components/request-hero";
+import { Meta } from "../components/common/meta";
+
+import { useRouter } from "next/router";
+import { useLang } from "../utils/useLang";
 
 interface MainPageProps {
   mainPageContent: MainPageContent;
 }
 
 export default function Index(props: MainPageProps) {
+  const router = useRouter();
+  const t = useLang(router.locale);
+
   return (
     <Page>
-      <Head>
-        <title>Dikor</title>
-        <meta
-          name="description"
-          content="КУПИТЬ 3D ПАНЕЛИ С ДОСТАВКОЙ ПО ЕВРОПЕ. 3D панели с готовым покрытием от производителя Dikor. Заказать 3D панели с доставкой по  всей Европе:  ☎️ +373 (76) 740995"
-        ></meta>
-      </Head>
+      <Meta description={t.seo.desc} />
       {/* <MainHero /> */}
       <Section noPadding style={{ padding: 0 }}>
         <HeaderSlider slides={props.mainPageContent.headerSlider.slides} />

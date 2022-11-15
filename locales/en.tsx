@@ -1,6 +1,9 @@
 export const en = {
   enLang: "Eng",
   ruLang: "Rus",
+  seo: {
+    desc: "Купить 3D панели с доставкой по Европе. 3D панели с готовым покрытием от производителя Dikor. Заказать 3D панели с доставкой по  всей Европе:  ☎️ +373 (76) 740995",
+  },
   common: {
     order: "Order",
     request: "Leave a request",

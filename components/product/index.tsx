@@ -14,6 +14,7 @@ import { getProductNameByLang } from "../../utils/getProductNameByLang";
 import { getPriceByLang } from "../../utils/getPriceByLang";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
+import { Meta } from "../common/meta";
 
 const getContentByLang = (
   locale: string,
@@ -127,12 +128,10 @@ export const ProductPageContent = ({ product }: { product: CatalogItem }) => {
 
   return (
     <Page>
-      <Head>
-        <title>{title}</title>
-        {product ? (
-          <meta property="og:image" content={product.galleryImgUrls[0]} />
-        ) : null}
-      </Head>
+      <Meta
+        title={title}
+        OGImage={product ? product.galleryImgUrls[0] : undefined}
+      />
       <Section noPadding style={{ paddingTop: 20 }}>
         <Back />
         <Product product={product} isLoading={router.isFallback} />

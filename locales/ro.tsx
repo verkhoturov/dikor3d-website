@@ -1,6 +1,9 @@
 export const ro = {
   enLang: "Eng",
   ruLang: "Rus",
+  seo: {
+    desc: "Cumpărați panouri 3D cu livrare în Europa. Panouri 3D cu acoperire finisată de la producătorul Dikor.  Comanda panouri 3D cu livrare in toata Europa: ☎️ +373 (76) 7409955",
+  },
   common: {
     order: "Ordin",
     request: "Lăsați o cerere",
