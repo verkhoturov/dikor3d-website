@@ -2,7 +2,7 @@ export const en = {
   enLang: "Eng",
   ruLang: "Rus",
   seo: {
-    desc: "Купить 3D панели с доставкой по Европе. 3D панели с готовым покрытием от производителя Dikor. Заказать 3D панели с доставкой по  всей Европе:  ☎️ +373 (76) 740995",
+    desc: "Cumpărați panouri 3D cu livrare în Europa. Panouri 3D cu acoperire finisată de la producătorul Dikor.  Comanda panouri 3D cu livrare in toata Europa: ☎️ +373 (76) 7409955",
   },
   common: {
     order: "Order",
