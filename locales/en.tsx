@@ -120,6 +120,6 @@ export const en = {
     },
   },
   requestHero: {
-    title: "Free on-site visit of an inspector with samples and catalogues",
+    title: "Free on-site visit of an manager with samples and catalogues",
   },
 };
