@@ -1,5 +1,5 @@
 export const getPriceByLang = (
-  priceMDL: string,
+  priceMDL: string | undefined,
   priceEUR: string,
   locale: string,
 ) => {

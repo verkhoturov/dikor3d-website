@@ -76,7 +76,7 @@ export const Menu: React.FC = () => {
         <a
           href="tel:+40745472526"
           className={styles.hideAtMob}
-        >{`+40 (745) 472 526`}</a>
+        >{`+ 40 (745) 472 526`}</a>
       </div>
 
       <div

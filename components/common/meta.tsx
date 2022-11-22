@@ -5,6 +5,7 @@ interface MetaProps {
   title?: string;
   description?: string;
   OGImage?: string;
+  type?: string;
 }
 
 export const Meta = ({ title, description, OGImage }: MetaProps) => {
@@ -37,14 +38,80 @@ export const Meta = ({ title, description, OGImage }: MetaProps) => {
       <meta name="msapplication-TileColor" content="#000000" />
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#000" />
-      
+
       <title>{title ?? "Dikor"}</title>
       {description && <meta name="description" content={description} />}
-      <meta property="og:title" content={title ? title : "Dikor"} />
+      <meta property="og:title" content={title ?? "Dikor"} />
       <meta property="og:image" content={OGImage ?? HOME_OG_IMAGE_URL} />
       <meta property="og:type" content="website" />
       {description && <meta property="og:description" content={description} />}
       <meta property="og:site_name" content="Dikor" />
+    </Head>
+  );
+};
+
+export const SchemaMainPage = () => {
+  return (
+    <Head>
+      <script type="application/ld+json">
+        {`{
+        "@context": "https://schema.org/",
+        "@type": "Organization",
+        "name": "Dikor",
+        "url": "https://www.dikor3d.com",
+        "logo": "https://www.dikor3d.com/favicon/favicon-32x32.png",
+        "telephone": [
+          "+ 373 (767) 409 95",
+          "+ 40 (745) 472 526"
+        ]
+        }`}
+      </script>
+    </Head>
+  );
+};
+
+interface SchemaProductProps {
+  name: string;
+  desc: string;
+  currency: string;
+  price: string;
+  slug: string;
+  images: string[];
+  catalog: string;
+}
+
+export const SchemaProduct = ({
+  name,
+  desc,
+  currency,
+  price,
+  slug,
+  images,
+  catalog,
+}: SchemaProductProps) => {
+  return (
+    <Head>
+      <script type="application/ld+json">
+        {`{
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": "${name}",
+        "image": [
+          ${images.map((img) => `"${img}"`)}
+        ],
+        "description": "${desc}",
+        "offers": {
+          "@type": "Offer",
+          "url": "https://www.dikor3d.com/${catalog}/${slug}",
+          "priceCurrency": "${currency}",
+          "price": "${price}",
+          "seller": {
+            "@type": "Organization",
+            "name": "Dikor"
+          }
+        }
+        }`}
+      </script>
     </Head>
   );
 };

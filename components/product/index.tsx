@@ -14,7 +14,7 @@ import { getProductNameByLang } from "../../utils/getProductNameByLang";
 import { getPriceByLang } from "../../utils/getPriceByLang";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
-import { Meta } from "../common/meta";
+import { Meta, SchemaProduct } from "../common/meta";
 
 const getContentByLang = (
   locale: string,
@@ -123,7 +123,23 @@ export const ProductPageContent = ({ product }: { product: CatalogItem }) => {
     return <ErrorPage statusCode={404} />;
   }
 
+  if(!product) return null;
+
+  const parentCatalog = router.asPath.split("/")[1];
+
   const productName = getProductNameByLang(router.locale, product?.name);
+  const fullPrice = getPriceByLang(
+    product?.priceMDL,
+    product.priceEUR,
+    router.locale
+  );
+  const currency = fullPrice.split(" ")[1];
+  const priceAmount = fullPrice.split(" ")[0];
+  const productContent = getContentByLang(
+    router.locale,
+    product.name,
+    product.content
+  );
   const title = productName ? `Dikor | ${productName}` : "Dikor";
 
   return (
@@ -131,6 +147,15 @@ export const ProductPageContent = ({ product }: { product: CatalogItem }) => {
       <Meta
         title={title}
         OGImage={product ? product.galleryImgUrls[0] : undefined}
+      />
+      <SchemaProduct
+        name={productName}
+        desc={productContent.desc.replace(/<(.|\n)*?>/g, '')}
+        currency={currency}
+        price={priceAmount}
+        slug={product.slug}
+        images={[product.galleryImgUrls[0], product.galleryImgUrls[1]]}
+        catalog={parentCatalog}
       />
       <Section noPadding style={{ paddingTop: 20 }}>
         <Back />

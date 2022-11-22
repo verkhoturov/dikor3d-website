@@ -10,7 +10,7 @@ import { ProductCatalog } from "../components/product-catalog";
 import { OurProduction } from "../components/our-production";
 import { Conditions } from "../components/conditions";
 import { RequestHero } from "../components/request-hero";
-import { Meta } from "../components/common/meta";
+import { Meta, SchemaMainPage } from "../components/common/meta";
 
 import { useRouter } from "next/router";
 import { useLang } from "../utils/useLang";
@@ -25,7 +25,8 @@ export default function Index(props: MainPageProps) {
 
   return (
     <Page>
-      <Meta description={t.seo.desc} />
+      <Meta description={t.seo.desc} title={t.seo.mainPageTitle} />
+      <SchemaMainPage />
       {/* <MainHero /> */}
       <Section noPadding style={{ padding: 0 }}>
         <HeaderSlider slides={props.mainPageContent.headerSlider.slides} />

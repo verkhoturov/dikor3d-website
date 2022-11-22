@@ -10,7 +10,7 @@ import { Catalog } from "../../components/catalog";
 import { getCatalogList } from "../../lib/api";
 import { CatalogItem, Category } from "../../lib/types";
 import { useLang } from "../../utils/useLang";
-import { Meta } from "../../components/common/meta";
+import { Meta, SchemaProduct } from "../../components/common/meta";
 
 interface CatalogPageProps {
   catalogList: CatalogItem[];
