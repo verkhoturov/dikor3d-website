@@ -21,13 +21,18 @@ interface MainPageProps {
 
 export default function Index(props: MainPageProps) {
   const router = useRouter();
-  const t = useLang(router.locale);
+  const locale = router.locale;
+  const t = useLang(locale);
+
+  const pageTitles = props.mainPageContent.headerSlider.slides[0].title;
+  const titleByLang = locale === "ro" ? pageTitles.rom : pageTitles[locale];
 
   return (
     <Page>
       <Meta description={t.seo.desc} title={t.seo.mainPageTitle} />
       <SchemaMainPage />
       {/* <MainHero /> */}
+      <h1 className="visually-hidden">{titleByLang}</h1>
       <Section noPadding style={{ padding: 0 }}>
         <HeaderSlider slides={props.mainPageContent.headerSlider.slides} />
       </Section>

@@ -1,6 +1,5 @@
 import React from "react";
 import ErrorPage from "next/error";
-import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./index.module.css";

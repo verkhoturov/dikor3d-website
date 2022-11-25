@@ -24,11 +24,14 @@ export default function CatalogClassicPage({ catalogList }: CatalogPageProps) {
   return (
     <Page>
       <Meta
-        title="Dikor Classic catalog"
+        title={`Dikor | ${t.seo.collections.classic.title}`}
         description={t.seo.desc}
         OGImage={catalogList[0].galleryImgUrls[0]}
+        link={"https://www.dikor3d.com/catalog-classic"}
+        isCatalogPage
       />
       {/* <Hero title="Lifestyle accessories created to bring you the joy of usage" /> */}
+      <h1 className="visually-hidden">{t.seo.collections.classic.title}</h1>
       <Section isGrayBg>
         <Catalog list={catalogList} isLoading={isLoading} />
       </Section>

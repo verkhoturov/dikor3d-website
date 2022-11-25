@@ -4,6 +4,18 @@ export const ro = {
   seo: {
     mainPageTitle: "Dikor | Panouri 3D cu livrare in toata Europa",
     desc: "Panouri 3D cu acoperire finisată de la producătorul Dikor. Comanda panouri 3D cu livrare in toata Europa: ☎️ +373 (76) 7409955",
+    collections: {
+      classic: { title: "Colecția Сlassic", desc: "" },
+      platinum: {
+        title: "Colecția Platinum",
+        desc: "Panouri 3D din gips fără sudură",
+      },
+      premium: {
+        title: "Colecția Premium",
+        desc: "formată din panouri de gips 3D cu un strat decorativ unic de vinil",
+      },
+      shine: { title: "Colecția Shine", desc: "Panou de gips 3D iluminat" },
+    },
   },
   common: {
     order: "Ordin",

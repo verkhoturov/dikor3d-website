@@ -4,6 +4,21 @@ export const en = {
   seo: {
     mainPageTitle: "Dikor | Panouri 3D cu livrare in toata Europa",
     desc: "Panouri 3D cu acoperire finisată de la producătorul Dikor. Comanda panouri 3D cu livrare in toata Europa: ☎️ +373 (76) 7409955",
+    collections: {
+      classic: {
+        title: "The Classic collection",
+        desc: "",
+      },
+      platinum: {
+        title: "The Platinum collection",
+        desc: "3D gypsum panels in a unique vinyl decorative coating",
+      },
+      premium: {
+        title: "The Premium collection",
+        desc: "3D gypsum panels in a unique vinyl decorative coating",
+      },
+      shine: { title: "The Shine collection", desc: "3D light plaster panels" },
+    },
   },
   common: {
     order: "Order",
@@ -85,7 +100,7 @@ export const en = {
     card3: {
       main: (
         <>
-          <strong>Platinum collection</strong> - seam gypsum 3D panels.
+          <strong>The Platinum collection</strong> - seam gypsum 3D panels.
         </>
       ),
       desc: "Some of the wall panels in our collection can glow. By choosing embossed panels of Platinum collection, you can quickly and easily update the interior and spend minimal time on it. Seam 3D panels do not require any preparatory work and grouting. The possibility of choosing 3D panels from Platinum collection allows you to eliminate the cost of finishing. The panels are installed in a seamless way that preserves the integrity and allows you to create monolithic compositions.",

@@ -4,6 +4,18 @@ export const ru = {
   seo: {
     mainPageTitle: "Dikor | 3D панели с доставкой по Европе",
     desc: "3D панели с готовым покрытием от производителя Dikor. Заказать 3D панели с доставкой по всей Европе:  ☎️ +373 (76) 740995",
+    collections: {
+      classic: { title: "Коллекция Сlassic", desc: "" },
+      platinum: {
+        title: "Коллекция Platinum",
+        desc: "Шовные гипсовые 3D панели",
+      },
+      premium: {
+        title: "Коллекция Premium",
+        desc: "Гипсовые 3D панели в уникальном виниловом декоративном покрытии",
+      },
+      shine: { title: "Коллекция Shine", desc: "Световые гипсовые 3D панели" },
+    },
   },
   common: {
     order: "Заказать",

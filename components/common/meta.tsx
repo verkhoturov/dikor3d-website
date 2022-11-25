@@ -6,46 +6,63 @@ interface MetaProps {
   description?: string;
   OGImage?: string;
   type?: string;
+  isCatalogPage?: boolean;
+  link?: string;
 }
 
-export const Meta = ({ title, description, OGImage }: MetaProps) => {
+export const Meta = ({
+  title,
+  description,
+  OGImage,
+  isCatalogPage,
+  link,
+}: MetaProps) => {
   return (
     <Head>
       <link
         rel="apple-touch-icon"
         sizes="180x180"
-        href="/favicon/apple-touch-icon.png"
+        href="/apple-touch-icon.png"
       />
       <link
         rel="icon"
         type="image/png"
         sizes="32x32"
-        href="/favicon/favicon-32x32.png"
+        href="/favicon-32x32.png"
       />
-      {/* <link
+      <link
         rel="icon"
         type="image/png"
         sizes="16x16"
-        href="/favicon/favicon-16x16.png"
-      /> */}
-      <link rel="manifest" href="/favicon/site.webmanifest" />
-      {/* <link
-        rel="mask-icon"
-        href="/favicon/safari-pinned-tab.svg"
-        color="#000000"
-      /> */}
+        href="/favicon-16x16.png"
+      />
+      <link rel="manifest" href="/site.webmanifest" />
       <link rel="shortcut icon" href="/favicon/favicon.ico" />
       <meta name="msapplication-TileColor" content="#000000" />
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#000" />
 
-      <title>{title ?? "Dikor"}</title>
+      <title>{title ? `Dikor | ${title}` : "Dikor"}</title>
       {description && <meta name="description" content={description} />}
       <meta property="og:title" content={title ?? "Dikor"} />
       <meta property="og:image" content={OGImage ?? HOME_OG_IMAGE_URL} />
       <meta property="og:type" content="website" />
       {description && <meta property="og:description" content={description} />}
       <meta property="og:site_name" content="Dikor" />
+      {isCatalogPage ? (
+        <script type="application/ld+json">
+          {`{
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": "${title}",
+        "url": "${link}",
+        "description": "${description}",
+        "image": "${OGImage}"
+        }`}
+        </script>
+      ) : (
+        ""
+      )}
     </Head>
   );
 };
@@ -64,6 +81,33 @@ export const SchemaMainPage = () => {
           "+ 373 (767) 409 95",
           "+ 40 (745) 472 526"
         ]
+        }`}
+      </script>
+    </Head>
+  );
+};
+
+export const SchemaCatalogPage = ({
+  name,
+  link,
+  desc,
+  image,
+}: {
+  name: string;
+  link: string;
+  desc: string;
+  image: string;
+}) => {
+  return (
+    <Head>
+      <script type="application/ld+json">
+        {`{
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": "${name}",
+        "url": "${link}",
+        "description": "${desc}",
+        "image": "${image}"
         }`}
       </script>
     </Head>

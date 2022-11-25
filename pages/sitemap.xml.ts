@@ -36,19 +36,19 @@ function generateSiteMap() {
          <loc>https://www.dikor3d.com/ru/catalog-classic</loc>
        </url>
        <url>
-         <loc>https://www.dikor3d.com/rom</loc>
+         <loc>https://www.dikor3d.com/en</loc>
        </url>
        <url>
-         <loc>https://www.dikor3d.com/rom/catalog-premium</loc>
+         <loc>https://www.dikor3d.com/en/catalog-premium</loc>
        </url>
        <url>
-         <loc>https://www.dikor3d.com/rom/catalog-shine</loc>
+         <loc>https://www.dikor3d.com/en/catalog-shine</loc>
        </url>
        <url>
-         <loc>https://www.dikor3d.com/rom/rom/catalog-platinum</loc>
+         <loc>https://www.dikor3d.com/en/catalog-platinum</loc>
        </url>
        <url>
-         <loc>https://www.dikor3d.com/rom/catalog-classic</loc>
+         <loc>https://www.dikor3d.com/en/catalog-classic</loc>
        </url>
      </urlset>
    `;

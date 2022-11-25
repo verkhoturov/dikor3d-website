@@ -21,10 +21,13 @@ export default function CatalogPremiumPage({ catalogList }: CatalogPageProps) {
   return (
     <Page>
       <Meta
-        title="Dikor Premium catalog"
-        description={t.seo.desc}
+        title={`Dikor | ${t.seo.collections.premium.title}`}
+        description={t.seo.collections.premium.desc}
         OGImage={premiumImg.src}
+        link={"https://www.dikor3d.com/catalog-premium"}
+        isCatalogPage
       />
+      <h1 className="visually-hidden">{t.seo.collections.premium.title}</h1>
       <Section isGrayBg>
         <Catalog list={catalogList} isLoading={isLoading} />
       </Section>

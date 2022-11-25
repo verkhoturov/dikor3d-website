@@ -23,10 +23,13 @@ export default function CatalogShinePage({ catalogList }: CatalogPageProps) {
   return (
     <Page>
       <Meta
-        title="Dikor Shine catalog"
-        description={t.seo.desc}
+        title={t.seo.collections.shine.title}
+        description={t.seo.collections.shine.desc}
         OGImage={shineImg.src}
+        link={"https://www.dikor3d.com/catalog-shine"}
+        isCatalogPage
       />
+      <h1 className="visually-hidden">{t.seo.collections.shine.title}</h1>
       <Section isGrayBg>
         <Catalog list={catalogList} isLoading={isLoading} />
       </Section>
