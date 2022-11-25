@@ -6,7 +6,7 @@ import { LangSwitcher } from "../lang-switcher";
 
 import styles from "./index.module.css";
 
-import logoImg from "./img/dikor.png";
+import logoImg from "./img/dikor.jpg";
 import { InstagramIcon } from "./img/instagram-icon";
 
 const Burger = ({ isOpen, onClick }) => (
@@ -59,8 +59,8 @@ export const Menu: React.FC = () => {
               className={styles.logo}
               src={logoImg}
               alt="Dikor logo"
-              width="90"
-              height="35"
+              width="45"
+              height="45"
               layout="responsive"
             />
           </a>

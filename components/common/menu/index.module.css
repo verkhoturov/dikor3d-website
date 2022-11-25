@@ -12,9 +12,9 @@
 }
 
 .logoWrapper {
-  width: 90px;
-  height: 35px;
-  margin-bottom: 8px;
+  width: 75px;
+  height: 70px;   
+  overflow: hidden;
 }
 
 .list {
@@ -158,8 +158,8 @@
   }
 
   .logoWrapper {
-    width: 70px;
-    height: 29px;
+    width: 75px;
+    height: 70px;   
   }
 
   .item {
@@ -186,8 +186,8 @@
   }
 
   .logoWrapper {
-    width: 68px;
-    height: 27px;
+    width: 55px;
+    height: 50px;   
   }
 
   .header {
