@@ -42,7 +42,7 @@ export const Meta = ({
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#000" />
 
-      <title>{title ? `Dikor | ${title}` : "Dikor"}</title>
+      <title>{title ?? "Dikor"}</title>
       {description && <meta name="description" content={description} />}
       <meta property="og:title" content={title ?? "Dikor"} />
       <meta property="og:image" content={OGImage ?? HOME_OG_IMAGE_URL} />
@@ -81,33 +81,6 @@ export const SchemaMainPage = () => {
           "+ 373 (767) 409 95",
           "+ 40 (745) 472 526"
         ]
-        }`}
-      </script>
-    </Head>
-  );
-};
-
-export const SchemaCatalogPage = ({
-  name,
-  link,
-  desc,
-  image,
-}: {
-  name: string;
-  link: string;
-  desc: string;
-  image: string;
-}) => {
-  return (
-    <Head>
-      <script type="application/ld+json">
-        {`{
-        "@context": "https://schema.org/",
-        "@type": "Product",
-        "name": "${name}",
-        "url": "${link}",
-        "description": "${desc}",
-        "image": "${image}"
         }`}
       </script>
     </Head>
