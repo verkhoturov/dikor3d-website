@@ -4,34 +4,14 @@ import styles from "./index.module.css";
 import { FeedbackModal } from "../feedback";
 import { useRouter } from "next/router";
 import { useLang } from "../../utils/useLang";
+import { MultiLanguageContent } from "../../lib/types";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
 
-const getContentByLang = (
-  locale: string,
-  content: {
-    ru: string;
-    en: string;
-    rom: string;
-  }
-) => {
-  if (locale === "en") return content.en;
-  if (locale === "ru") return content.ru;
-  if (locale === "ro") return content.rom;
-};
-
 interface HeaderSliderProps {
   slides: {
-    title: {
-      ru: string;
-      en: string;
-      rom: string;
-    };
-    subtitle: {
-      ru: string;
-      en: string;
-      rom: string;
-    };
+    title: MultiLanguageContent;
+    subtitle: MultiLanguageContent;
     imgUrl: string;
   }[];
 }
@@ -64,8 +44,8 @@ export const HeaderSlider = ({ slides }: HeaderSliderProps) => {
           <SwiperSlide key={i}>
             <div className={styles.slideInner}>
               <Hero
-                title={getContentByLang(locale, slide.title)}
-                subtitle={getContentByLang(locale, slide.subtitle)}
+                title={slide.title[locale]}
+                subtitle={slide.subtitle[locale]}
                 bgImg={slide.imgUrl}
                 height={890}
                 tag="div"

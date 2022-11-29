@@ -3,13 +3,17 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import classnames from "classnames";
-import { CatalogItem } from "../../lib/types";
-import { useLang } from "../../utils/useLang";
-import { getProductNameByLang } from "../../utils/getProductNameByLang";
-import { getPathByCategory } from "../../utils/getPathByCategory";
-import { getPriceByLang } from "../../utils/getPriceByLang";
+import { CatalogItem, Category } from "../../lib/types";
+import { useLang } from "../../utils/useLang"; 
 
 import styles from "./index.module.css";
+
+const getPathByCategory = (category: Category) => {
+  if (category === Category.CLASSIC) return "catalog-classic";
+  if (category === Category.PLATINUM) return "catalog-platinum";
+  if (category === Category.PREMIUM) return "catalog-premium";
+  if (category === Category.SHINE) return "catalog-shine";
+};
 
 interface CatalogProps {
   list: CatalogItem[];
@@ -19,8 +23,7 @@ interface CatalogProps {
 const Item: React.FC<CatalogItem> = ({
   slug,
   name,
-  priceMDL,
-  priceEUR,
+  price,
   category,
   galleryImgUrls,
 }) => {
@@ -28,9 +31,9 @@ const Item: React.FC<CatalogItem> = ({
   const locale = router.locale;
   const t = useLang(locale);
 
-  const itemName = getProductNameByLang(locale, name);
+  const itemName = name[locale];
+  const fullPrice = price[locale];
   const parentCatalog = getPathByCategory(category);
-  const price = getPriceByLang(priceMDL, priceEUR, locale);
   const href = `/${parentCatalog}/${slug}`;
   const primaryImg = galleryImgUrls[0];
   const secondaryImg = galleryImgUrls[1];
@@ -69,7 +72,7 @@ const Item: React.FC<CatalogItem> = ({
           <div>
             <p className={styles.name}>{itemName}</p>
             <p className={styles.price}>
-              {price} <span>/ {t.common.amount} </span>
+              {fullPrice} <span>/ {t.common.amount} </span>
             </p>
           </div>
         </div>
@@ -87,10 +90,9 @@ export const Catalog: React.FC<CatalogProps> = ({ list, isLoading }) => {
             key={item}
             id={item}
             slug=""
-            name={{ en: "", rus: "", rom: "" }}
+            name={{ en: "", ru: "", ro: "" }}
             galleryImgUrls={[]}
-            priceMDL=""
-            priceEUR=""
+            price={{ en: "", ru: "", ro: "" }}
             category={1}
           />
         ))}

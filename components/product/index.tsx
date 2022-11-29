@@ -4,32 +4,22 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./index.module.css";
 import { OrderModal } from "../order";
-import { Page } from "../page";
+import { Page } from "../common/page";
 import { Section } from "../common";
-import { CatalogItem, MultiLanguageContent } from "../../lib/types";
+import { CatalogItem } from "../../lib/types";
 import { useRouter } from "next/router";
 import { useLang } from "../../utils/useLang";
-import { getProductNameByLang } from "../../utils/getProductNameByLang";
-import { getPriceByLang } from "../../utils/getPriceByLang";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
 import { Meta, SchemaProduct } from "../common/meta";
 
-const getContentByLang = (
-  locale: string,
-  name: MultiLanguageContent,
-  content: MultiLanguageContent
-) => {
-  if (locale === "en") return { name: name.en, desc: content.en };
-  if (locale === "ru") return { name: name.rus, desc: content.rus };
-  if (locale === "ro") return { name: name.rom, desc: content.rom };
-  return { name: name.rus, desc: content.rus };
-};
-
 export const Product: React.FC<{
-  product: CatalogItem;
+  name: string;
+  desc: string;
+  price: string;
+  galleryImgUrls: string[];
   isLoading?: boolean;
-}> = ({ product, isLoading }) => {
+}> = ({ name, desc, price, galleryImgUrls, isLoading }) => {
   const router = useRouter();
   const locale = router.locale;
   const t = useLang(locale);
@@ -45,10 +35,6 @@ export const Product: React.FC<{
         </div>
       </div>
     );
-
-  const { name, content, priceMDL, priceEUR, galleryImgUrls } = product;
-  const productContent = getContentByLang(locale, name, content);
-  const price = getPriceByLang(priceMDL, priceEUR, locale);
 
   return (
     <div className={styles.wrapper}>
@@ -67,7 +53,7 @@ export const Product: React.FC<{
               <Image
                 className={styles.img}
                 src={imgUrl}
-                alt={productContent.name}
+                alt={name}
                 width={500}
                 height={600}
                 layout="responsive"
@@ -77,7 +63,7 @@ export const Product: React.FC<{
         </Swiper>
       </div>
       <div className={styles.descWrapper}>
-        <h2 className={styles.name}>{productContent.name}</h2>
+        <h2 className={styles.name}>{name}</h2>
         <p className={styles.price}>
           {price} <span>/ {t.common.amount} </span>
         </p>
@@ -87,15 +73,12 @@ export const Product: React.FC<{
         </button>
         <p
           className={styles.desc}
-          dangerouslySetInnerHTML={{ __html: productContent.desc }}
+          dangerouslySetInnerHTML={{ __html: desc }}
         ></p>
       </div>
 
       {showModal && (
-        <OrderModal
-          onClose={() => setShowModal(false)}
-          product={productContent}
-        />
+        <OrderModal onClose={() => setShowModal(false)} productName={name} />
       )}
     </div>
   );
@@ -116,40 +99,31 @@ export const Back = () => {
 };
 
 export const ProductPageContent = ({ product }: { product: CatalogItem }) => {
-  const router = useRouter();
+  const { isFallback, asPath, locale } = useRouter();
 
-  if (!router.isFallback && !product) {
+  if (!isFallback && !product) {
     return <ErrorPage statusCode={404} />;
   }
 
-  if(!product) return null;
+  if (!product) return null;
 
-  const parentCatalog = router.asPath.split("/")[1];
+  const parentCatalog = asPath.split("/")[1];
 
-  const productName = getProductNameByLang(router.locale, product?.name);
-  const fullPrice = getPriceByLang(
-    product?.priceMDL,
-    product.priceEUR,
-    router.locale
-  );
-  const currency = fullPrice.split(" ")[1];
-  const priceAmount = fullPrice.split(" ")[0];
-  const productContent = getContentByLang(
-    router.locale,
-    product.name,
-    product.content
-  );
-  const title = productName ? `Dikor | ${productName}` : "Dikor";
+  const productName = product.name[locale];
+  const productDesc = product.content[locale];
+  const fullPrice = product.price[locale];
+
+  const [priceAmount, currency] = fullPrice.split(" ");
 
   return (
     <Page>
       <Meta
-        title={title}
+        title={productName ? `Dikor | ${productName}` : "Dikor"}
         OGImage={product ? product.galleryImgUrls[0] : undefined}
       />
       <SchemaProduct
         name={productName}
-        desc={productContent.desc.replace(/<(.|\n)*?>/g, '')}
+        desc={productDesc.replace(/<(.|\n)*?>/g, "")}
         currency={currency}
         price={priceAmount}
         slug={product.slug}
@@ -158,7 +132,13 @@ export const ProductPageContent = ({ product }: { product: CatalogItem }) => {
       />
       <Section noPadding style={{ paddingTop: 20 }}>
         <Back />
-        <Product product={product} isLoading={router.isFallback} />
+        <Product
+          name={productName}
+          desc={productDesc}
+          price={fullPrice}
+          galleryImgUrls={product.galleryImgUrls}
+          isLoading={isFallback}
+        />
       </Section>
     </Page>
   );

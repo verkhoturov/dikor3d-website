@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 import { getMainPageContent } from "../lib/api";
 import { MainPageContent } from "../lib/types";
-import { Page } from "../components/page";
+import { Page } from "../components/common/page";
 import { Section } from "../components/common";
 import { HeaderSlider } from "../components/header-slider";
 // import { MainHero } from "../components/main-hero";
@@ -25,7 +25,7 @@ export default function Index(props: MainPageProps) {
   const t = useLang(locale);
 
   const pageTitles = props.mainPageContent.headerSlider.slides[0].title;
-  const titleByLang = locale === "ro" ? pageTitles.rom : pageTitles[locale];
+  const titleByLang = locale === "ro" ? pageTitles.ro : pageTitles[locale];
 
   return (
     <Page>

@@ -7,19 +7,19 @@ export enum Category {
 }
 
 export interface MultiLanguageContent {
-  rus: string;
-  rom: string;
+  ru: string;
+  ro: string;
   en: string;
 }
 
 export interface CatalogItem {
   id: number;
+  order?: number;
   slug: string;
   name: MultiLanguageContent;
   content?: MultiLanguageContent;
   galleryImgUrls: string[];
-  priceMDL: string;
-  priceEUR: string;
+  price: MultiLanguageContent;
   category: Category;
 }
 
@@ -29,12 +29,12 @@ export interface MainPageContent {
       title: {
         ru: string;
         en: string;
-        rom: string;
+        ro: string;
       };
       subtitle: {
         ru: string;
         en: string;
-        rom: string;
+        ro: string;
       };
       imgUrl: string;
     }[];

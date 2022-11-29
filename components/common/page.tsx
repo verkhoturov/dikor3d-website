@@ -1,4 +1,4 @@
-import { Footer, Main, Menu } from "./common";
+import { Footer, Main, Menu } from "./index";
 
 export const Page: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (

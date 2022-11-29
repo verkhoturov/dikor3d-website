@@ -5,7 +5,7 @@ import {
   // Hero,
   Section,
 } from "../../components/common";
-import { Page } from "../../components/page";
+import { Page } from "../../components/common/page";
 import { Catalog } from "../../components/catalog";
 import { getCatalogList } from "../../lib/api";
 import { CatalogItem, Category } from "../../lib/types";

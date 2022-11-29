@@ -10,24 +10,30 @@ export const getCatalogList = async (
   );
   const data = await res.json();
 
-  if (data.errors) {
+  if (!data.length || data.errors) {
     console.error(data.errors);
     throw new Error("Failed to fetch catalog list");
   }
 
-  const list: CatalogItem[] = data.map(({ id, slug, title, acf }) => ({
-    id,
-    slug,
-    name: {
-      rus: acf.title_rus,
-      rom: acf.title_rom,
-      en: title.rendered,
-    },
-    galleryImgUrls: acf.gallery.map(({ sizes }) => sizes.large),
-    priceMDL: acf.price,
-    priceEUR: acf.price_eur,
-    category,
-  }));
+  const list: CatalogItem[] = data
+    .map(({ id, slug, title, acf }, index) => ({
+      id,
+      order: acf.order ? +acf.order : index + 1000,
+      slug,
+      name: {
+        ru: acf.title_rus,
+        ro: acf.title_rom,
+        en: title.rendered,
+      },
+      galleryImgUrls: acf.gallery.map(({ sizes }) => sizes.large),
+      price: {
+        ru: `${acf.price} mdl`,
+        ro: `${acf.price} mdl`,
+        en: `${acf.price_eur} eur`,
+      },
+      category,
+    }))
+    .sort((a, b) => a.order - b.order);
 
   return list;
 };
@@ -36,12 +42,7 @@ export const getProduct = async (slug: string): Promise<CatalogItem> => {
   const res = await fetch(`${API_URL}/posts?slug=${slug}`);
   const data = await res.json();
 
-  if (data.errors) {
-    console.error(data.errors);
-    throw new Error("Failed to fetch product data");
-  }
-
-  if (!data.length) {
+  if (!data.length || data.errors) {
     console.error(data.errors);
     throw new Error("Failed to fetch product data");
   }
@@ -52,18 +53,21 @@ export const getProduct = async (slug: string): Promise<CatalogItem> => {
     id,
     slug,
     content: {
-      rus: acf.description_rus,
-      rom: acf.description_rom,
+      ru: acf.description_rus,
+      ro: acf.description_rom,
       en: content.rendered,
     },
     name: {
-      rus: acf.title_rus,
-      rom: acf.title_rom,
+      ru: acf.title_rus,
+      ro: acf.title_rom,
       en: title.rendered,
     },
     galleryImgUrls: acf.gallery.map(({ sizes }) => sizes.large),
-    priceMDL: acf.price,
-    priceEUR: acf.price_eur,
+    price: {
+      ru: `${acf.price} mdl`,
+      ro: `${acf.price} mdl`,
+      en: `${acf.price_eur} eur`,
+    },
     category: categories[0],
   };
 
@@ -85,12 +89,12 @@ export const getMainPageContent = async (): Promise<MainPageContent> => {
         title: {
           ru: slide.title_ru,
           en: slide.title_en,
-          rom: slide.title_rom,
+          ro: slide.title_rom,
         },
         subtitle: {
           ru: slide.subtitle_ru,
           en: slide.subtitle_en,
-          rom: slide.subtitle_rom,
+          ro: slide.subtitle_rom,
         },
         imgUrl: slide.image.url,
       })),

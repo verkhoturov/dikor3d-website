@@ -10,13 +10,10 @@ import styles from "./index.module.css";
 
 interface OrderModalProps {
   onClose: () => void;
-  product: {
-    name: string;
-    desc: string;
-  };
+  productName: string;
 }
 
-export const OrderModal = ({ onClose, product }: OrderModalProps) => {
+export const OrderModal = ({ onClose, productName }: OrderModalProps) => {
   const router = useRouter();
   const t = useLang(router.locale);
 
@@ -42,7 +39,7 @@ export const OrderModal = ({ onClose, product }: OrderModalProps) => {
       email,
       phone,
       amount,
-      product: product.name,
+      product: productName,
     });
     const res = await fetch("/api/contact", { method: "POST", body });
     const data = await res.json();
@@ -72,7 +69,7 @@ export const OrderModal = ({ onClose, product }: OrderModalProps) => {
       ) : (
         <form ref={formRef} onSubmit={onSubmit} className={styles.form}>
           <div className={styles.productWrapper}>
-            <Paragraph>{product.name}</Paragraph>
+            <Paragraph>{productName}</Paragraph>
 
             <div className={styles.amountWrapper}>
               <button type="button" onClick={() => setAmount(amount + 1)}>
@@ -134,7 +131,7 @@ export const OrderModal = ({ onClose, product }: OrderModalProps) => {
           <input
             className={styles.input}
             type="text"
-            value={product.name}
+            value={productName}
             style={{ display: "none" }}
           />
 
