@@ -29,7 +29,7 @@ export default async (req, res) => {
     } else {
       options = {
         from: "Dikor <robot@admin.dikor3d.com>",
-        to: "verkhoturov314@gmail.com",
+        to: "verkhoturov314@gmail.com, dikorpanel3d@gmail.com",
         subject: "Dikor заявка на обратный звонок",
         html: `Заявка на обратный звонок. <br/><br/>
           Имя: ${body.name}<br/>
