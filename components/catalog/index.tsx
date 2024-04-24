@@ -30,6 +30,11 @@ const Item: React.FC<CatalogItem> = ({
   const router = useRouter();
   const locale = router.locale;
   const t = useLang(locale);
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsMobile(window.innerWidth < 1024);
+  }, []);
 
   const itemName = name[locale];
   const fullPrice = price[locale];
@@ -54,6 +59,7 @@ const Item: React.FC<CatalogItem> = ({
             width={386}
             height={390}
             layout="responsive"
+            unoptimized={isMobile}
           />
         </div>
         {secondaryImg && (
@@ -65,6 +71,7 @@ const Item: React.FC<CatalogItem> = ({
               width={386}
               height={390}
               layout="responsive"
+              unoptimized={isMobile}
             />
           </div>
         )}
