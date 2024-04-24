@@ -25,6 +25,11 @@ export const Product: React.FC<{
   const t = useLang(locale);
 
   const [showModal, setShowModal] = React.useState(false);
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsMobile(window.innerWidth < 1024);
+  }, []);
 
   if (isLoading)
     return (
@@ -57,6 +62,7 @@ export const Product: React.FC<{
                 width={500}
                 height={600}
                 layout="responsive"
+                unoptimized={isMobile}
               />
             </SwiperSlide>
           ))}
