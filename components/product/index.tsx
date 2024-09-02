@@ -96,7 +96,7 @@ export const Back = () => {
   const parentCatalog = router.asPath.split("/")[1];
 
   return (
-    <Link href={`/${parentCatalog}`}>
+    <Link href={`/${parentCatalog}`} legacyBehavior>
       <a>
         <span className={styles.backBtn}>{t.common.back}</span>
       </a>

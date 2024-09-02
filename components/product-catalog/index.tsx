@@ -43,7 +43,7 @@ const Item: React.FC<ItemProps> = ({ content, imgLink, href, isMobile }) => {
           <span className={styles.desc}>{content.desc}</span>
         </Paragraph>
 
-        <Link href={href}>
+        <Link href={href} legacyBehavior>
           <a>{t.productCatalog.link}</a>
         </Link>
       </div>

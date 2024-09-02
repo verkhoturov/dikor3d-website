@@ -24,22 +24,22 @@ const List = () => (
   <nav className={styles.nav}>
     <ul className={styles.list}>
       <li className={styles.item}>
-        <Link href="/catalog-premium">
+        <Link href="/catalog-premium" legacyBehavior>
           <a>Premium</a>
         </Link>
       </li>
       <li className={styles.item}>
-        <Link href="/catalog-shine">
+        <Link href="/catalog-shine" legacyBehavior>
           <a>Shine</a>
         </Link>
       </li>
       <li className={styles.item}>
-        <Link href="/catalog-platinum">
+        <Link href="/catalog-platinum" legacyBehavior>
           <a>Platinum</a>
         </Link>
       </li>
       <li className={styles.item}>
-        <Link href="/catalog-classic">
+        <Link href="/catalog-classic" legacyBehavior>
           <a>Classic</a>
         </Link>
       </li>
@@ -53,7 +53,7 @@ export const Menu: React.FC = () => {
   return (
     <header className={styles.header}>
       <div className={styles.logoWrapper}>
-        <Link href="/">
+        <Link href="/" legacyBehavior>
           <a>
             <Image
               className={styles.logo}
@@ -85,7 +85,7 @@ export const Menu: React.FC = () => {
       >
         <LangSwitcher />
 
-        <Link href="https://www.instagram.com/dima_di_kor/">
+        <Link href="https://www.instagram.com/dima_di_kor/" legacyBehavior>
           <a>
             <InstagramIcon />
           </a>

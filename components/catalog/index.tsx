@@ -45,7 +45,7 @@ const Item: React.FC<CatalogItem> = ({
 
   if (!slug) return <div className={styles.item}></div>;
   return (
-    <Link href={href}>
+    <Link href={href} legacyBehavior>
       <a className={styles.item}>
         <div
           className={classnames(styles.mainImgWrapper, {

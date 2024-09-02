@@ -63,6 +63,7 @@ export const Hero: React.FC<{
       <div className={styles.bgImg}>
         <div className={styles.bgImgInner}>
           <Image
+            alt="Dikor"
             src={bgImg}
             width={1198}
             height={height}

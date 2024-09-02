@@ -52,21 +52,21 @@ export const LangSwitcher = () => {
       {isOpen && (
         <div className={styles.listLang}>
           {locale !== "en" && (
-            <Link href={`/${pathname}`} locale="en">
+            <Link href={`/${pathname}`} locale="en" legacyBehavior>
               <a onClick={() => setIsOpen(false)}>
                 <span className={styles.lang}>Eng</span>
               </a>
             </Link>
           )}
           {locale !== "ru" && (
-            <Link href={`/${pathname}`} locale="ru">
+            <Link href={`/${pathname}`} locale="ru" legacyBehavior>
               <a onClick={() => setIsOpen(false)}>
                 <span className={styles.lang}>Rus</span>
               </a>
             </Link>
           )}
           {locale !== "ro" && (
-            <Link href={`/${pathname}`} locale="ro">
+            <Link href={`/${pathname}`} locale="ro" legacyBehavior>
               <a onClick={() => setIsOpen(false)}>
                 <span className={styles.lang}>Rom</span>
               </a>
