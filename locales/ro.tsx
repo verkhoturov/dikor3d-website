@@ -23,7 +23,7 @@ export const ro = {
     requestSecondary: "Contactați managerul",
     loading: "Se încarcă",
     back: "Înapoi",
-    amount: "cantitate",
+    amount: "buc",
   },
   menu: {
     main: "Acasă",
