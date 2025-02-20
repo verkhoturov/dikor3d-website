@@ -1,7 +1,7 @@
 import React from "react";
 import ErrorPage from "next/error";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import styles from "./index.module.css";
 import { OrderModal } from "../order";
 import { Page } from "../common/page";
@@ -122,7 +122,7 @@ export const ProductPageContent = ({ product }: { product: CatalogItem }) => {
   const [priceAmount, currency] = fullPrice.split(" ");
 
   return (
-    <Page>
+    (<Page>
       <Meta
         title={productName ? `Dikor | ${productName}` : "Dikor"}
         OGImage={product ? product.galleryImgUrls[0] : undefined}
@@ -146,6 +146,6 @@ export const ProductPageContent = ({ product }: { product: CatalogItem }) => {
           isLoading={isFallback}
         />
       </Section>
-    </Page>
+    </Page>)
   );
 };

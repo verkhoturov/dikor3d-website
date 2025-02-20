@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { H2, Paragraph, Button } from "../common";
 import { FeedbackModal } from "../feedback";
 
