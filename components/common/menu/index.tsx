@@ -85,7 +85,7 @@ export const Menu: React.FC = () => {
       >
         <LangSwitcher />
 
-        <Link href="https://www.instagram.com/dikor3d?igsh=Z20xcGZzeHRycHYz" legacyBehavior>
+        <Link href="https://www.instagram.com/dikor3d?igsh=Z20xcGZzeHRycHYz" target="_blank" legacyBehavior>
           <a>
             <InstagramIcon />
           </a>
